@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+    JD Tech Sage - Portfolio / Projects Page
+    EDITABLE PROJECTS: To add/edit a project, find the project cards 
+    section below and copy/paste a .project-card-wrap block.
+    Each card has: data-category, title, description, type label, tags.
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | JD Tech Sage - App, Game & Web Projects | Gujarat</title>
+  <meta name="description" content="Explore JD Tech Sage's portfolio - app development, game development, web projects, and IT networking/CCTV projects from our Gujarat-based team.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.jdtechsage.com/pages/portfolio.html">
+  <link rel="icon" type="image/png" href="../images/jdtechsagelogo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- ItemList Schema for projects -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "JD Tech Sage Portfolio",
+    "description": "Projects by JD Tech Sage - Mahesana IT Company",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ShopEase E-Commerce Platform" },
+      { "@type": "ListItem", "position": 2, "name": "EduPortal School Website" },
+      { "@type": "ListItem", "position": 3, "name": "Galaxy Runners Mobile Game" },
+      { "@type": "ListItem", "position": 4, "name": "HealthSync Fitness App" },
+      { "@type": "ListItem", "position": 5, "name": "BrainQuest Trivia Game" },
+      { "@type": "ListItem", "position": 6, "name": "Shadow Maze 3D Game" },
+      { "@type": "ListItem", "position": 7, "name": "CityMart Delivery App" },
+      { "@type": "ListItem", "position": 8, "name": "Mehta Industries LAN Network" },
+      { "@type": "ListItem", "position": 9, "name": "GreenLeaf Factory CCTV" },
+      { "@type": "ListItem", "position": 10, "name": "EduCare Institute Network" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <header class="page-hero" role="banner">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a> <span>›</span> <span>Portfolio</span>
+      </nav>
+      <h1>Projects That <span class="text-cyan">Prove Our Craft</span></h1>
+      <p style="color:var(--text-secondary);max-width:580px;margin:0 auto;font-size:1.05rem;">
+        Real products. Real impact. Here's what we've built for clients across India.
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="section" aria-labelledby="portfolio-heading">
+    <div class="container">
+      <h2 id="portfolio-heading" class="sr-only">All Projects</h2>
+
+      <!-- Filter Buttons -->
+      <div class="project-filters" role="group" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="web">Websites</button>
+        <button class="filter-btn" data-filter="app">Mobile Apps</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+        <button class="filter-btn" data-filter="networking">IT / CCTV</button>
+      </div>
+
+      <!-- ═══════════════════════════════════
+        PROJECTS GRID
+        HOW TO EDIT: 
+        - Copy a .project-card-wrap block to add a new project
+        - Change data-category to: web | app | game | networking
+        - Update the emoji, title, description, tags
+        - Add a real image by replacing the placeholder div with:
+          <img src="../images/your-project.jpg" alt="..." class="project-img">
+      ═══════════════════════════════════ -->
+      <div class="grid grid-3" id="projects-grid">
+
+        <!-- ── PROJECT 1: Web ── -->
+        <div class="project-card-wrap" data-category="web" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <!-- Replace emoji div with <img> when you have a screenshot -->
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#0a1428,#003060);" aria-hidden="true">🛍️</div>
+            <div class="project-body">
+              <span class="project-type">Web App · E-Commerce</span>
+              <h3>ShopEase - E-Commerce Platform</h3>
+              <p>Full-stack e-commerce platform with real-time inventory management, Razorpay payment gateway, admin dashboard, and automatic order notifications. Built for a Gujarat-based retail chain.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag blue">MongoDB</span>
+                <span class="tag">Razorpay</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View ShopEase case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Delivered</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 2: Web ── -->
+        <div class="project-card-wrap" data-category="web" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#0a1428,#001a40);" aria-hidden="true">🏫</div>
+            <div class="project-body">
+              <span class="project-type">Website · Education</span>
+              <h3>EduPortal - School Management Website</h3>
+              <p>Complete school website with student portal, fee management, online admission, timetable, and notice board. Serving 800+ students in Mahesana district.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Next.js</span>
+                <span class="tag blue">Firebase</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag green">SEO</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View EduPortal case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Live</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 3: App ── -->
+        <div class="project-card-wrap" data-category="app" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#001a1a,#003050);" aria-hidden="true">💪</div>
+            <div class="project-body">
+              <span class="project-type">Flutter App · Health & Fitness</span>
+              <h3>HealthSync - AI Fitness Tracker</h3>
+              <p>Cross-platform fitness app (Android + iOS) with AI workout recommendations, progress graphs, calorie counter, and social challenges. 5,000+ active users.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Flutter</span>
+                <span class="tag blue">Firebase</span>
+                <span class="tag purple">ML Kit</span>
+                <span class="tag">REST API</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View HealthSync case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Play Store Live</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 4: App ── -->
+        <div class="project-card-wrap" data-category="app" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a0a00,#401a00);" aria-hidden="true">🛵</div>
+            <div class="project-body">
+              <span class="project-type">Flutter App · On-Demand Delivery</span>
+              <h3>CityMart - Grocery Delivery App</h3>
+              <p>Hyperlocal grocery delivery app with real-time order tracking, multi-vendor support, digital wallet, and push notifications. Serving 3 cities in Gujarat.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Flutter</span>
+                <span class="tag">Google Maps</span>
+                <span class="tag green">Firebase</span>
+                <span class="tag blue">Stripe</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View CityMart case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Active</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 5: Game ── -->
+        <div class="project-card-wrap" data-category="game" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#0a0028,#200060);" aria-hidden="true">🚀</div>
+            <div class="project-body">
+              <span class="project-type">Unity Game · Hyper-Casual</span>
+              <h3>Galaxy Runners - Space Runner</h3>
+              <p>Endless runner set in space with procedural level generation, power-ups, daily challenges, and leaderboards. 50,000+ downloads on Play Store. Monetized with AdMob.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Unity</span>
+                <span class="tag purple">C#</span>
+                <span class="tag">AdMob</span>
+                <span class="tag green">50K+ Downloads</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View Galaxy Runners case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-cyan);">⭐ Featured</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 6: Game ── -->
+        <div class="project-card-wrap" data-category="game" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#001a0a,#003020);" aria-hidden="true">🧠</div>
+            <div class="project-body">
+              <span class="project-type">Unity Game · Quiz / Trivia</span>
+              <h3>BrainQuest - Multiplayer Trivia</h3>
+              <p>Real-time multiplayer trivia game with 1v1 battles, 10,000+ questions across categories, streak rewards, and a season-based ranking system.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Unity</span>
+                <span class="tag blue">Photon PUN</span>
+                <span class="tag">Multiplayer</span>
+                <span class="tag purple">C#</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View BrainQuest case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Delivered</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 7: Game ── -->
+        <div class="project-card-wrap" data-category="game" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#100010,#200030);" aria-hidden="true">🌑</div>
+            <div class="project-body">
+              <span class="project-type">Unity 3D Game · Action / Puzzle</span>
+              <h3>Shadow Maze - 3D Stealth Puzzle</h3>
+              <p>PC and mobile 3D puzzle game where players use shadows and light mechanics to navigate mazes. Critically praised for its unique visual design and clever level design.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Unity 3D</span>
+                <span class="tag purple">Shader Graph</span>
+                <span class="tag">PC + Mobile</span>
+                <span class="tag blue">Puzzle</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View Shadow Maze case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-cyan);">⭐ Delivered</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 8: Networking ── -->
+        <div class="project-card-wrap" data-category="networking" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#001a10,#003020);" aria-hidden="true">🏭</div>
+            <div class="project-body">
+              <span class="project-type">IT Networking · Industrial LAN</span>
+              <h3>Mehta Industries - Factory LAN Network</h3>
+              <p>Complete LAN network setup for a 15,000 sq ft factory floor with 80+ workstations. Structured Cat6 cabling, managed switches, server room setup, and firewall configuration. Zero downtime in 1+ year.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">LAN</span>
+                <span class="tag">Cat6</span>
+                <span class="tag green">Cisco</span>
+                <span class="tag blue">Server</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View Mehta Industries case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Running</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 9: Networking/CCTV ── -->
+        <div class="project-card-wrap" data-category="networking" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a0a00,#301500);" aria-hidden="true">📷</div>
+            <div class="project-body">
+              <span class="project-type">CCTV Installation · Commercial</span>
+              <h3>GreenLeaf Warehouse - 32-Camera CCTV System</h3>
+              <p>32-camera IP CCTV system across a 25,000 sq ft warehouse. PTZ cameras at entry/exit, fixed cameras at storage zones, NVR with 30-day cloud backup, and mobile app remote access.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">IP Cameras</span>
+                <span class="tag blue">NVR</span>
+                <span class="tag green">Cloud Backup</span>
+                <span class="tag purple">PTZ</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View GreenLeaf case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Active</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── PROJECT 10: Networking ── -->
+        <div class="project-card-wrap" data-category="networking" style="transition:all 0.3s ease;">
+          <article class="project-card">
+            <div class="project-img-placeholder" style="background:linear-gradient(135deg,#00101a,#002040);" aria-hidden="true">🏫</div>
+            <div class="project-body">
+              <span class="project-type">IT Networking · Education</span>
+              <h3>EduCare Institute - Smart Campus Network</h3>
+              <p>End-to-end network for an educational institute with 200+ students. High-density Wi-Fi, 8-camera CCTV, biometric attendance integration, internet filtering, and student bandwidth management.</p>
+              <div class="service-tags mb-3">
+                <span class="tag cyan">Wi-Fi</span>
+                <span class="tag">CCTV</span>
+                <span class="tag green">Biometric</span>
+                <span class="tag blue">Filtering</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="project-link" aria-label="View EduCare case study">Link →</a>
+                <span style="font-size:0.75rem;color:var(--accent-green);">✅ Delivered</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Want to See Your Project <span class="text-cyan">Here Next?</span></h2>
+        <p>Whether it's an app, game, website, or IT setup - let's build something great together.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="services.html#contact" class="btn btn-primary">🚀 Start Your Project</a>
+          <a href="about.html" class="btn btn-outline">Meet the Team →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

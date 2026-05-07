@@ -1,1422 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JD Tech Sage — Web, App & Game Dev Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- ============================================================
+    JD Tech Sage — Homepage (index.html)
+    SEO target keywords: gujarat it company, mahesana it company,
+    mahesana website development, gujarat it company list
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  :root {
-    --bg: #030509;
-    --fg: #e8eaf2;
-    --accent: #00f5c4;
-    --accent2: #7b5cf5;
-    --accent3: #ff4f7b;
-    --muted: #3a3d52;
-    --glass: rgba(255,255,255,0.03);
-    --border: rgba(255,255,255,0.07);
-  }
+  <!-- SEO Meta -->
+  <title>JD Tech Sage | Top IT Company in Mahesana, Gujarat — App, Game & Web Development</title>
+  <meta name="description" content="JD Tech Sage is a leading IT company in Mahesana, Gujarat offering app development, game development, web development, IT networking, and camera installation services. Turn your idea into a scalable product.">
+  <meta name="keywords" content="gujarat it company, gujarat it company list, mahesana it company, mahesana website development, app development gujarat, game development gujarat, web development mahesana, it networking mahesana, flutter developer india">
+  <meta name="author" content="JD Tech Sage">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.jdtechsage.com/">
 
-  html { scroll-behavior: smooth; }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JD Tech Sage | IT Company Mahesana Gujarat">
+  <meta property="og:description" content="App, Game & Web Development company based in Mahesana, Gujarat. We turn ideas into scalable digital products.">
+  <meta property="og:url" content="https://www.jdtechsage.com/">
+  <meta property="og:image" content="https://www.jdtechsage.com/images/og-image.jpg">
+  <meta property="og:site_name" content="JD Tech Sage">
 
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'Outfit', sans-serif;
-    overflow-x: hidden;
-    cursor: none;
-  }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JD Tech Sage | IT Company Mahesana Gujarat">
+  <meta name="twitter:description" content="App, Game & Web Development company based in Mahesana, Gujarat.">
+  <meta name="twitter:image" content="https://www.jdtechsage.com/images/og-image.jpg">
 
-  /* CUSTOM CURSOR */
-  .cursor {
-    width: 12px; height: 12px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-    mix-blend-mode: difference;
-  }
-  .cursor-trail {
-    width: 36px; height: 36px;
-    border: 1px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.15s ease;
-    opacity: 0.5;
-  }
+  <!-- Favicon — Place jdtechsagelogo.png in /images/ folder -->
+  <link rel="icon" type="image/png" href="images/jdtechsagelogo.png">
+  <link rel="apple-touch-icon" href="images/jdtechsagelogo.png">
 
-  /* NOISE OVERLAY */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9997;
-    opacity: 0.4;
-  }
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-  /* GRID BACKGROUND */
-  .grid-bg {
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,245,196,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,245,196,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-    animation: gridPulse 8s ease-in-out infinite;
-  }
-  @keyframes gridPulse {
-    0%,100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
+  <!-- Preconnect for Google Fonts (loaded in CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 24px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(20px);
-    background: rgba(3,5,9,0.6);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.4s;
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JD Tech Sage",
+    "url": "https://www.jdtechsage.com",
+    "logo": "https://www.jdtechsage.com/images/jdtechsagelogo.png",
+    "description": "Leading IT company in Mahesana, Gujarat offering app development, game development, web development, and IT networking.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mahesana",
+      "addressLocality": "Mahesana",
+      "addressRegion": "Gujarat",
+      "postalCode": "384001",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-XXXXXXXXXX",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi", "Gujarati"]
+    },
+    "sameAs": [
+      "https://www.instagram.com/deepdarji_",
+      "https://www.linkedin.com/in/deepdarji"
+    ],
+    "foundingDate": "2023",
+    "numberOfEmployees": "5-10",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.5986,
+        "longitude": 72.3957
+      }
+    }
   }
+  </script>
 
-  .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.3rem;
-    letter-spacing: -0.02em;
-    color: var(--fg);
-    text-decoration: none;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .logo-icon {
-    width: 32px; height: 32px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: var(--bg);
-    animation: logoPulse 3s ease-in-out infinite;
-  }
-  @keyframes logoPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(0,245,196,0.4); }
-    50% { box-shadow: 0 0 20px 5px rgba(0,245,196,0.15); }
-  }
-
-  .nav-links { display: flex; gap: 40px; align-items: center; }
-  .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.78rem;
-    color: rgba(232,234,242,0.6);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    position: relative;
-    transition: color 0.3s;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 1px;
-    background: var(--accent);
-    transition: width 0.3s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a:hover::after { width: 100%; }
-
-  .nav-cta {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent) !important;
-    padding: 8px 20px;
-    border-radius: 4px;
-    transition: all 0.3s !important;
-  }
-  .nav-cta:hover {
-    background: var(--accent) !important;
-    color: var(--bg) !important;
-    box-shadow: 0 0 30px rgba(0,245,196,0.3) !important;
-  }
-  .nav-cta::after { display: none !important; }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 160px 60px 80px;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    animation: orbFloat 10s ease-in-out infinite;
-  }
-  .hero-orb-1 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(0,245,196,0.12), transparent 70%);
-    top: -100px; right: -100px;
-    animation-delay: 0s;
-  }
-  .hero-orb-2 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(123,92,245,0.12), transparent 70%);
-    bottom: 0px; left: -150px;
-    animation-delay: -4s;
-  }
-  .hero-orb-3 {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(255,79,123,0.08), transparent 70%);
-    top: 50%; left: 50%;
-    animation-delay: -7s;
-  }
-  @keyframes orbFloat {
-    0%,100% { transform: translateY(0) scale(1); }
-    33% { transform: translateY(-30px) scale(1.05); }
-    66% { transform: translateY(20px) scale(0.95); }
-  }
-
-  .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.3s forwards;
-  }
-  .hero-tag::before {
-    content: '';
-    width: 40px; height: 1px;
-    background: var(--accent);
-  }
-
-  .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(3.5rem, 8vw, 8rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
-  }
-
-  .hero-title .line { overflow: hidden; display: block; }
-  .hero-title .accent-word {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-  }
-  .hero-title .stroke-text {
-    -webkit-text-stroke: 1px rgba(232,234,242,0.3);
-    color: transparent;
-  }
-
-  .hero-desc {
-    font-size: 1.1rem;
-    color: rgba(232,234,242,0.55);
-    max-width: 520px;
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 56px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.7s forwards;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    padding: 16px 40px;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    border-radius: 4px;
-    cursor: none;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-    display: inline-block;
-  }
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-  }
-  .btn-primary:hover::before { left: 100%; }
-  .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(0,245,196,0.4);
-    transform: translateY(-2px);
-  }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--fg);
-    border: 1px solid var(--border);
-    padding: 16px 40px;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    border-radius: 4px;
-    cursor: none;
-    text-decoration: none;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .btn-ghost:hover {
-    border-color: var(--accent2);
-    color: var(--accent2);
-    transform: translateY(-2px);
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px;
-    left: 60px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    opacity: 0;
-    animation: fadeUp 0.8s 1.3s forwards;
-  }
-  .scroll-line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-    animation: scrollLine 2s ease-in-out infinite;
-  }
-  @keyframes scrollLine {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
-  .scroll-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(232,234,242,0.3);
-    letter-spacing: 0.15em;
-    writing-mode: vertical-rl;
-    text-transform: uppercase;
-  }
-
-  /* FLOATING STATS */
-  .hero-stats {
-    position: absolute;
-    right: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    opacity: 0;
-    animation: fadeLeft 0.8s 1.1s forwards;
-  }
-  .stat-item {
-    text-align: right;
-    position: relative;
-  }
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--fg), rgba(232,234,242,0.5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(232,234,242,0.3);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-  .stat-item::before {
-    content: '';
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    width: 4px; height: 4px;
-    background: var(--accent);
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeLeft {
-    from { opacity: 0; transform: translate(40px, -50%); }
-    to { opacity: 1; transform: translate(0, -50%); }
-  }
-
-  /* MARQUEE TICKER */
-  .ticker {
-    position: relative;
-    z-index: 2;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    overflow: hidden;
-    padding: 16px 0;
-    background: rgba(255,255,255,0.01);
-  }
-  .ticker-track {
-    display: flex;
-    animation: ticker 20s linear infinite;
-    width: max-content;
-  }
-  .ticker-track:hover { animation-play-state: paused; }
-  .ticker-item {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 0 40px;
-    white-space: nowrap;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: rgba(232,234,242,0.3);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .ticker-dot {
-    width: 4px; height: 4px;
-    background: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  @keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* SERVICES SECTION */
-  .section {
-    position: relative;
-    z-index: 1;
-    padding: 120px 60px;
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 80px;
-    gap: 40px;
-  }
-
-  .section-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-  }
-
-  .section-sub {
-    font-size: 0.9rem;
-    color: rgba(232,234,242,0.4);
-    max-width: 320px;
-    line-height: 1.7;
-    text-align: right;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-  }
-
-  /* SERVICE CARDS */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .service-card {
-    background: var(--bg);
-    padding: 56px 48px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
-    cursor: none;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0,245,196,0.04), transparent);
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-  .service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: var(--accent);
-    transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
-  }
-  .service-card:hover::before { opacity: 1; }
-  .service-card:hover::after { width: 100%; }
-  .service-card:hover { transform: translateY(-4px); }
-
-  .service-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(232,234,242,0.2);
-    letter-spacing: 0.2em;
-    margin-bottom: 32px;
-  }
-
-  .service-icon {
-    width: 56px; height: 56px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 32px;
-    transition: all 0.4s;
-    position: relative;
-    overflow: hidden;
-  }
-  .service-card:hover .service-icon {
-    border-color: var(--accent);
-    box-shadow: 0 0 20px rgba(0,245,196,0.15);
-    transform: scale(1.05) rotate(5deg);
-  }
-
-  .service-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -0.01em;
-  }
-
-  .service-desc {
-    font-size: 0.88rem;
-    color: rgba(232,234,242,0.45);
-    line-height: 1.7;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    color: rgba(232,234,242,0.35);
-    border: 1px solid var(--border);
-    padding: 5px 12px;
-    border-radius: 2px;
-    letter-spacing: 0.08em;
-    transition: all 0.3s;
-  }
-  .service-card:hover .tag {
-    border-color: rgba(0,245,196,0.25);
-    color: var(--accent);
-  }
-
-  /* PROCESS SECTION */
-  .process-section {
-    background: rgba(255,255,255,0.01);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    position: relative;
-  }
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 32px;
-    left: 10%;
-    width: 80%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), var(--accent3), transparent);
-    opacity: 0.3;
-  }
-
-  .process-step {
-    padding: 0 40px 0 0;
-    position: relative;
-  }
-
-  .step-dot {
-    width: 64px; height: 64px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: rgba(232,234,242,0.3);
-    margin-bottom: 32px;
-    position: relative;
-    transition: all 0.5s;
-    background: var(--bg);
-  }
-  .process-step:hover .step-dot {
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 30px rgba(0,245,196,0.2), 0 0 60px rgba(0,245,196,0.05);
-  }
-
-  .step-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-  .step-desc {
-    font-size: 0.84rem;
-    color: rgba(232,234,242,0.4);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* WORK / PORTFOLIO PREVIEW */
-  .work-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: var(--border);
-  }
-
-  .work-card {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
-    cursor: none;
-    background: var(--bg);
-  }
-  .work-card.tall { height: 600px; grid-row: span 2; }
-
-  .work-bg {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
-  }
-  .work-card:hover .work-bg { transform: scale(1.05); }
-
-  .work-bg-1 { background: linear-gradient(135deg, #0a1628 0%, #1a0a2e 50%, #0a2818 100%); }
-  .work-bg-2 { background: linear-gradient(135deg, #1a0a14 0%, #280a0a 50%, #1a1028 100%); }
-  .work-bg-3 { background: linear-gradient(135deg, #0a280a 0%, #0a1428 50%, #1a0a28 100%); }
-
-  .work-visual {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  /* Geometric animations for work cards */
-  .geo-anim {
-    position: relative;
-    width: 200px; height: 200px;
-  }
-  .geo-ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid;
-    animation: geoSpin 6s linear infinite;
-    top: 50%; left: 50%;
-    transform-origin: 0 0;
-  }
-  .geo-ring:nth-child(1) { width: 160px; height: 160px; margin: -80px; border-color: rgba(0,245,196,0.3); }
-  .geo-ring:nth-child(2) { width: 120px; height: 120px; margin: -60px; border-color: rgba(123,92,245,0.3); animation-direction: reverse; animation-duration: 4s; }
-  .geo-ring:nth-child(3) { width: 80px; height: 80px; margin: -40px; border-color: rgba(255,79,123,0.3); animation-duration: 8s; }
-  .geo-dot { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; transform: translate(-50%,-50%); box-shadow: 0 0 20px var(--accent); }
-  @keyframes geoSpin { to { transform: rotate(360deg) translate(0,0); } }
-
-  .work-info {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 40px;
-    background: linear-gradient(to top, rgba(3,5,9,0.95), transparent);
-    transform: translateY(60px);
-    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-  }
-  .work-card:hover .work-info { transform: translateY(0); }
-
-  .work-cat {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .work-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-  .work-arrow {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    width: 40px; height: 40px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s;
-    opacity: 0;
-    transform: rotate(-45deg) scale(0.8);
-  }
-  .work-card:hover .work-arrow {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* TECH STACK */
-  .tech-section { padding: 100px 60px; }
-  .tech-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 60px;
-  }
-  .tech-item {
-    background: var(--bg);
-    padding: 32px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    cursor: none;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .tech-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 50%;
-    width: 0; height: 2px;
-    background: var(--accent2);
-    transform: translateX(-50%);
-    transition: width 0.4s;
-  }
-  .tech-item:hover { background: rgba(123,92,245,0.04); }
-  .tech-item:hover::after { width: 100%; }
-  .tech-emoji { font-size: 1.6rem; }
-  .tech-name {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    color: rgba(232,234,242,0.4);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-  .tech-item:hover .tech-name { color: var(--accent2); }
-
-  /* CTA SECTION */
-  .cta-section {
-    padding: 140px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-bg {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(123,92,245,0.08), transparent 70%);
-  }
-  .cta-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(3rem, 6vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 32px;
-    position: relative;
-  }
-  .cta-sub {
-    font-size: 1rem;
-    color: rgba(232,234,242,0.4);
-    margin-bottom: 56px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-    font-weight: 300;
-    position: relative;
-  }
-  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 32px;
-    position: relative;
-    z-index: 1;
-  }
-  .footer-left {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(232,234,242,0.2);
-    letter-spacing: 0.1em;
-  }
-  .footer-links {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .footer-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(232,234,242,0.3);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-  .footer-links a:hover { color: var(--accent); }
-
-  /* PAGE 2 LINK */
-  .page2-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid rgba(0,245,196,0.2);
-    padding: 10px 20px;
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-  .page2-link:hover {
-    background: rgba(0,245,196,0.05);
-    border-color: var(--accent);
-  }
-
-  /* SCROLL REVEAL */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.16,1,0.3,1);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ANIMATED COUNTER */
-  .counter { display: inline-block; }
-
-  /* RESPONSIVE */
-  @media (max-width: 1024px) {
-    nav { padding: 20px 32px; }
-    .hero { padding: 140px 32px 80px; }
-    .hero-stats { display: none; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 48px; }
-    .tech-grid { grid-template-columns: repeat(4, 1fr); }
-    .section { padding: 80px 32px; }
-    .cta-section { padding: 100px 32px; }
-    footer { padding: 40px 32px; }
-  }
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .services-grid { grid-template-columns: 1fr; }
-    .work-grid { grid-template-columns: 1fr; }
-    .work-card.tall { grid-row: span 1; height: 400px; }
-    .process-steps { grid-template-columns: 1fr; }
-    .tech-grid { grid-template-columns: repeat(3, 1fr); }
-    .section-header { flex-direction: column; align-items: flex-start; }
-    .section-sub { text-align: left; }
-    footer { flex-direction: column; }
-  }
-
-  /* FLOATING PARTICLES */
-  .particle {
-    position: fixed;
-    width: 2px; height: 2px;
-    background: var(--accent);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    animation: particleFloat var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
-  }
-  @keyframes particleFloat {
-    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-    10% { opacity: 0.6; }
-    90% { opacity: 0.6; }
-    100% { transform: translateY(-100px) translateX(var(--dx, 40px)); opacity: 0; }
-  }
-
-  /* Glitch text effect */
-  .glitch {
-    position: relative;
-  }
-  .glitch::before, .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-  }
-  .glitch::before {
-    animation: glitch1 4s infinite;
-    color: var(--accent3);
-    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-  }
-  .glitch::after {
-    animation: glitch2 4s infinite;
-    color: var(--accent2);
-    clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
-  }
-  @keyframes glitch1 {
-    0%, 95%, 100% { transform: translateX(0); opacity: 0; }
-    96% { transform: translateX(-3px); opacity: 0.8; }
-    97% { transform: translateX(3px); opacity: 0.8; }
-    98% { transform: translateX(-1px); opacity: 0.8; }
-  }
-  @keyframes glitch2 {
-    0%, 95%, 100% { transform: translateX(0); opacity: 0; }
-    96% { transform: translateX(3px); opacity: 0.8; }
-    97% { transform: translateX(-3px); opacity: 0.8; }
-    98% { transform: translateX(1px); opacity: 0.8; }
-  }
-
-  /* Animated border */
-  .animated-border {
-    position: relative;
-  }
-  .animated-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
-    background-size: 300% 100%;
-    border-radius: inherit;
-    animation: borderAnim 3s linear infinite;
-    z-index: -1;
-  }
-  @keyframes borderAnim {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
-  }
-
-  /* Number count up */
-  @keyframes countUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+  <!-- WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JD Tech Sage",
+    "url": "https://www.jdtechsage.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.jdtechsage.com/pages/blog.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
+
 <body>
 
-<!-- Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-trail" id="cursorTrail"></div>
+  <!-- Navigation (injected by components.js) -->
+  <div id="nav-placeholder"></div>
 
-<!-- Grid Background -->
-<div class="grid-bg"></div>
+  <!-- ═══════════════════════════════════════════
+    HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <header class="hero" role="banner">
+    <!-- Animated grid background -->
+    <div class="hero-grid" aria-hidden="true"></div>
+    <!-- Radial glow -->
+    <div class="hero-glow" aria-hidden="true"></div>
 
-<!-- Particles -->
-<div id="particles"></div>
+    <div class="container hero-content">
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo">
-    <div class="logo-icon">JD</div>
-    JD Tech Sage
-  </a>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#work">Work</a>
-    <a href="#process">Process</a>
-    <a href="page2.html">About</a>
-    <a href="page2.html" class="nav-cta">Start Project</a>
-  </div>
-</nav>
+      <!-- Eyebrow label -->
+      <div class="hero-eyebrow" aria-hidden="true">Mahesana · Gujarat · India</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
+      <!-- H1 — Primary keyword -->
+      <h1>Struggling to Turn Your<br><span class="text-cyan">Idea Into a Scalable App?</span></h1>
 
-  <div class="hero-tag">Digital Craftsmanship Studio</div>
+      <p class="hero-desc">
+        JD Tech Sage is Mahesana's most trusted IT company — building 
+        cutting-edge <strong style="color:var(--text-primary)">apps, games, websites</strong>, 
+        and delivering <strong style="color:var(--text-primary)">IT networking</strong> solutions 
+        that help businesses grow in the digital age.
+      </p>
 
-  <h1 class="hero-title">
-    <span class="line">We Build</span>
-    <span class="line"><span class="accent-word glitch" data-text="Digital">Digital</span></span>
-    <span class="line stroke-text">Experiences</span>
-    <span class="line">That Matter</span>
-  </h1>
-
-  <p class="hero-desc">
-    Web platforms. Mobile apps. Game worlds. We engineer digital products that push the boundaries of what's possible — from concept to launch.
-  </p>
-
-  <div class="hero-btns">
-    <a href="#work" class="btn-primary">See Our Work</a>
-    <a href="page2.html" class="btn-ghost">
-      Start a Project
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span class="scroll-text">Scroll to explore</span>
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="120">0</span>+</div>
-      <div class="stat-label">Projects Shipped</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="8">0</span>+</div>
-      <div class="stat-label">Years Active</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="98">0</span>%</div>
-      <div class="stat-label">Client Satisfaction</div>
-    </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="ticker-dot"></span> Web Development <span class="ticker-dot"></span> Mobile Apps <span class="ticker-dot"></span> Game Development <span class="ticker-dot"></span> UI/UX Design <span class="ticker-dot"></span> AR/VR Experiences <span class="ticker-dot"></span> API Engineering <span class="ticker-dot"></span> Cloud Architecture <span class="ticker-dot"></span> Blockchain <span class="ticker-dot"></span></div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Web Development <span class="ticker-dot"></span> Mobile Apps <span class="ticker-dot"></span> Game Development <span class="ticker-dot"></span> UI/UX Design <span class="ticker-dot"></span> AR/VR Experiences <span class="ticker-dot"></span> API Engineering <span class="ticker-dot"></span> Cloud Architecture <span class="ticker-dot"></span> Blockchain <span class="ticker-dot"></span></div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="section-header reveal">
-    <div>
-      <span class="section-num">01 / Services</span>
-      <h2 class="section-title">What We<br>Build For You</h2>
-    </div>
-    <p class="section-sub">From pixel-perfect interfaces to high-performance backends — we do it all.</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-num">01</div>
-      <div class="service-icon">🌐</div>
-      <h3 class="service-name">Web Development</h3>
-      <p class="service-desc">High-performance web platforms built with modern frameworks. From landing pages to complex SaaS products that scale to millions of users.</p>
-      <div class="service-tags">
-        <span class="tag">React</span>
-        <span class="tag">Next.js</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">PostgreSQL</span>
+      <div class="hero-btns">
+        <!-- Primary CTA -->
+        <a href="pages/services.html#contact" class="btn btn-primary" aria-label="Start your project with JD Tech Sage">
+          🚀 Start Your Project
+        </a>
+        <a href="pages/portfolio.html" class="btn btn-outline" aria-label="View our portfolio">
+          View Portfolio →
+        </a>
       </div>
-    </div>
 
-    <div class="service-card reveal" style="transition-delay:0.1s">
-      <div class="service-num">02</div>
-      <div class="service-icon">📱</div>
-      <h3 class="service-name">App Development</h3>
-      <p class="service-desc">Native and cross-platform mobile apps that deliver exceptional user experiences on iOS and Android with buttery-smooth performance.</p>
-      <div class="service-tags">
-        <span class="tag">React Native</span>
-        <span class="tag">Swift</span>
-        <span class="tag">Kotlin</span>
-        <span class="tag">Flutter</span>
-      </div>
-    </div>
-
-    <div class="service-card reveal" style="transition-delay:0.2s">
-      <div class="service-num">03</div>
-      <div class="service-icon">🎮</div>
-      <h3 class="service-name">Game Development</h3>
-      <p class="service-desc">Immersive gaming experiences across platforms. From indie titles to large-scale multiplayer games with stunning visuals and deep mechanics.</p>
-      <div class="service-tags">
-        <span class="tag">Unity</span>
-        <span class="tag">Unreal</span>
-        <span class="tag">WebGL</span>
-        <span class="tag">AR/VR</span>
-      </div>
-    </div>
-
-    <div class="service-card reveal" style="transition-delay:0.05s">
-      <div class="service-num">04</div>
-      <div class="service-icon">✦</div>
-      <h3 class="service-name">UI/UX Design</h3>
-      <p class="service-desc">Design systems and interfaces that are both beautiful and functional. User research driven, pixel perfect, accessible by default.</p>
-      <div class="service-tags">
-        <span class="tag">Figma</span>
-        <span class="tag">Framer</span>
-        <span class="tag">Prototyping</span>
-        <span class="tag">A11y</span>
-      </div>
-    </div>
-
-    <div class="service-card reveal" style="transition-delay:0.15s">
-      <div class="service-num">05</div>
-      <div class="service-icon">⚡</div>
-      <h3 class="service-name">API & Backend</h3>
-      <p class="service-desc">Robust, scalable API architectures and microservices that power your product. Built for reliability, speed, and security at every layer.</p>
-      <div class="service-tags">
-        <span class="tag">GraphQL</span>
-        <span class="tag">REST</span>
-        <span class="tag">Redis</span>
-        <span class="tag">AWS</span>
-      </div>
-    </div>
-
-    <div class="service-card reveal" style="transition-delay:0.25s">
-      <div class="service-num">06</div>
-      <div class="service-icon">🤖</div>
-      <h3 class="service-name">AI Integration</h3>
-      <p class="service-desc">Embed intelligence into your product. Custom ML models, LLM integrations, computer vision — making your app smarter and more capable.</p>
-      <div class="service-tags">
-        <span class="tag">OpenAI</span>
-        <span class="tag">TensorFlow</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">CV</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK -->
-<section class="section" id="work" style="padding-top:0">
-  <div class="section-header reveal">
-    <div>
-      <span class="section-num">02 / Selected Work</span>
-      <h2 class="section-title">Projects That<br>Pushed Limits</h2>
-    </div>
-    <p class="section-sub">A curated selection of work we're proud of.</p>
-  </div>
-
-  <div class="work-grid">
-    <div class="work-card tall reveal">
-      <div class="work-bg work-bg-1"></div>
-      <div class="work-visual">
-        <div class="geo-anim">
-          <div class="geo-ring"></div>
-          <div class="geo-ring"></div>
-          <div class="geo-ring"></div>
-          <div class="geo-dot"></div>
+      <!-- Stats -->
+      <div class="hero-stats" role="list" aria-label="Company statistics">
+        <div class="stat-item" role="listitem">
+          <div class="stat-num" data-target="50" data-suffix="+">0+</div>
+          <div class="stat-label">Projects Done</div>
+        </div>
+        <div class="stat-item" role="listitem">
+          <div class="stat-num" data-target="30" data-suffix="+">0+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item" role="listitem">
+          <div class="stat-num" data-target="5" data-suffix="+">0+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item" role="listitem">
+          <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+          <div class="stat-label">Client Satisfaction</div>
         </div>
       </div>
-      <span class="work-arrow">→</span>
-      <div class="work-info">
-        <span class="work-cat">Web Platform</span>
-        <div class="work-title">NeuralCore Dashboard</div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">Scroll</div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+    PROBLEM → SOLUTION INTRO
+  ═══════════════════════════════════════════ -->
+  <section class="section-sm" aria-labelledby="intro-heading">
+    <div class="container text-center">
+      <div class="section-tag" aria-hidden="true">Why JD Tech Sage</div>
+      <h2 id="intro-heading" class="section-title reveal">
+        Most Ideas Die Because of the<br><span>Wrong Tech Partner</span>
+      </h2>
+      <p class="section-subtitle reveal">
+        You have the vision. We have the expertise to make it real — faster, smarter, 
+        and built to scale. From Mahesana to the world.
+      </p>
+      <div class="grid grid-3 stagger-children mt-4">
+        <div class="card text-center">
+          <span style="font-size:2.5rem;display:block;margin-bottom:16px;">⚡</span>
+          <h3 style="font-size:1rem;margin-bottom:8px;">Fast Delivery</h3>
+          <p style="font-size:0.85rem;">Agile sprints. On-time launches. No excuses.</p>
+        </div>
+        <div class="card text-center">
+          <span style="font-size:2.5rem;display:block;margin-bottom:16px;">🔒</span>
+          <h3 style="font-size:1rem;margin-bottom:8px;">NDA Protected</h3>
+          <p style="font-size:0.85rem;">Your ideas are safe with us. Strict confidentiality.</p>
+        </div>
+        <div class="card text-center">
+          <span style="font-size:2.5rem;display:block;margin-bottom:16px;">🌍</span>
+          <h3 style="font-size:1rem;margin-bottom:8px;">Global Standards</h3>
+          <p style="font-size:0.85rem;">World-class code quality at Gujarat-friendly pricing.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="work-card reveal" style="transition-delay:0.1s">
-      <div class="work-bg work-bg-2"></div>
-      <div class="work-visual">
-        <div style="font-size:4rem;animation:orbFloat 4s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,79,123,0.5))">🎮</div>
+  <hr class="glow-divider">
+
+  <!-- ═══════════════════════════════════════════
+    SERVICES OVERVIEW
+  ═══════════════════════════════════════════ -->
+  <section class="section" id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag" aria-hidden="true">What We Build</div>
+        <h2 id="services-heading" class="section-title reveal">
+          Services That <span>Scale With You</span>
+        </h2>
+        <p class="section-subtitle reveal">
+          From idea to App Store, Game release, or Live website — we do it all under one roof.
+        </p>
       </div>
-      <span class="work-arrow">→</span>
-      <div class="work-info">
-        <span class="work-cat">Game Development</span>
-        <div class="work-title">Void Runners</div>
+
+      <div class="grid grid-3 stagger-children">
+
+        <!-- App Development -->
+        <article class="card service-card" id="app-dev">
+          <span class="service-icon" aria-hidden="true">📱</span>
+          <h3>App Development</h3>
+          <p>Not getting downloads? Your app might be solving the wrong problem. We build Flutter & React Native apps that users love and businesses profit from.</p>
+          <div class="service-tags">
+            <span class="tag cyan">Flutter</span>
+            <span class="tag blue">React Native</span>
+            <span class="tag">Android</span>
+            <span class="tag">iOS</span>
+          </div>
+        </article>
+
+        <!-- Game Development -->
+        <article class="card service-card" id="game-dev">
+          <span class="service-icon" aria-hidden="true">🎮</span>
+          <h3>Game Development</h3>
+          <p>Want to ship a game but don't know where to start? We design and develop 2D/3D games using Unity — mobile, PC, and beyond.</p>
+          <div class="service-tags">
+            <span class="tag cyan">Unity</span>
+            <span class="tag purple">C#</span>
+            <span class="tag">Mobile Games</span>
+            <span class="tag">2D / 3D</span>
+          </div>
+        </article>
+
+        <!-- Web Development -->
+        <article class="card service-card" id="web-dev">
+          <span class="service-icon" aria-hidden="true">🌐</span>
+          <h3>Web Development</h3>
+          <p>Your website is your 24/7 salesperson. We build fast, SEO-friendly websites and web apps that convert visitors into customers.</p>
+          <div class="service-tags">
+            <span class="tag cyan">React</span>
+            <span class="tag blue">Next.js</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">SEO</span>
+          </div>
+        </article>
+
+        <!-- IT Networking -->
+        <article class="card service-card" id="networking">
+          <span class="service-icon" aria-hidden="true">🔗</span>
+          <h3>IT Networking & LAN</h3>
+          <p>Slow office network? Frequent downtime? We design and install enterprise-grade LAN networks, structured cabling, and Wi-Fi solutions.</p>
+          <div class="service-tags">
+            <span class="tag green">LAN Setup</span>
+            <span class="tag">Structured Cabling</span>
+            <span class="tag">Wi-Fi</span>
+            <span class="tag">Server</span>
+          </div>
+        </article>
+
+        <!-- Camera Installation -->
+        <article class="card service-card" id="camera">
+          <span class="service-icon" aria-hidden="true">📷</span>
+          <h3>CCTV & Camera Installation</h3>
+          <p>Protect what matters most. We install CCTV systems for homes, offices, and factories — with remote monitoring and cloud storage.</p>
+          <div class="service-tags">
+            <span class="tag cyan">CCTV</span>
+            <span class="tag blue">IP Cameras</span>
+            <span class="tag">DVR / NVR</span>
+            <span class="tag">Remote Access</span>
+          </div>
+        </article>
+
+        <!-- UI/UX Design -->
+        <article class="card service-card" id="ui-ux">
+          <span class="service-icon" aria-hidden="true">🎨</span>
+          <h3>UI / UX Design</h3>
+          <p>Users leave ugly apps in seconds. Our UI expert crafts beautiful, intuitive interfaces that keep users engaged and coming back.</p>
+          <div class="service-tags">
+            <span class="tag purple">Figma</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">User Research</span>
+            <span class="tag">Branding</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="pages/services.html" class="btn btn-outline">See All Services →</a>
       </div>
     </div>
+  </section>
 
-    <div class="work-card reveal" style="transition-delay:0.2s">
-      <div class="work-bg work-bg-3"></div>
-      <div class="work-visual">
-        <div style="font-size:4rem;animation:orbFloat 5s ease-in-out infinite;animation-delay:-2s;filter:drop-shadow(0 0 20px rgba(0,245,196,0.5))">📱</div>
+  <hr class="glow-divider">
+
+  <!-- ═══════════════════════════════════════════
+    HOW WE WORK — WORKFLOW DIAGRAM
+  ═══════════════════════════════════════════ -->
+  <section class="section" id="process" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag" aria-hidden="true">Our Process</div>
+        <h2 id="process-heading" class="section-title reveal">
+          How We Build <span>Your Product</span>
+        </h2>
+        <p class="section-subtitle reveal">
+          Simple. Transparent. No surprises. Here's exactly what happens after you reach out.
+        </p>
       </div>
-      <span class="work-arrow">→</span>
-      <div class="work-info">
-        <span class="work-cat">Mobile App</span>
-        <div class="work-title">Sage Finance</div>
+
+      <!-- Visual workflow diagram -->
+      <div class="workflow-steps stagger-children" role="list" aria-label="Development workflow steps">
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-icon" data-step="1" aria-hidden="true">💬</div>
+          <h4>Discovery Call</h4>
+          <p>We understand your idea, goals, and requirements in a free 30-min call.</p>
+        </div>
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-icon" data-step="2" aria-hidden="true">📋</div>
+          <h4>Proposal & NDA</h4>
+          <p>You receive a detailed proposal + NDA to protect your idea legally.</p>
+        </div>
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-icon" data-step="3" aria-hidden="true">🎨</div>
+          <h4>Design Sprint</h4>
+          <p>Wireframes and UI mockups approved before a single line of code is written.</p>
+        </div>
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-icon" data-step="4" aria-hidden="true">⚙️</div>
+          <h4>Development</h4>
+          <p>Agile sprints with bi-weekly demos so you're always in the loop.</p>
+        </div>
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-icon" data-step="5" aria-hidden="true">🧪</div>
+          <h4>Testing & QA</h4>
+          <p>Rigorous testing across devices before any release goes live.</p>
+        </div>
+        <div class="workflow-step" role="listitem">
+          <div class="workflow-icon" data-step="6" aria-hidden="true">🚀</div>
+          <h4>Launch & Support</h4>
+          <p>Go live with confidence. 30-day free post-launch support included.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROCESS -->
-<section class="section process-section" id="process">
-  <div class="section-header reveal" style="margin-bottom:80px">
-    <div>
-      <span class="section-num">03 / Process</span>
-      <h2 class="section-title">How We Work</h2>
+  <hr class="glow-divider">
+
+  <!-- ═══════════════════════════════════════════
+    FEATURED PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag" aria-hidden="true">Our Work</div>
+        <h2 id="projects-heading" class="section-title reveal">
+          Projects That <span>Speak for Themselves</span>
+        </h2>
+        <p class="section-subtitle reveal">
+          Real products. Real clients. Real results. Here's a taste of what we've built.
+        </p>
+      </div>
+
+      <div class="grid grid-3 stagger-children">
+        <!-- Featured 3 projects -->
+        <article class="project-card">
+          <div class="project-img-placeholder" style="background:linear-gradient(135deg,#0a1428,#001a3a);">🛍️</div>
+          <div class="project-body">
+            <span class="project-type">Web App</span>
+            <h3>ShopEase — E-Commerce Platform</h3>
+            <p>Full-stack e-commerce solution with real-time inventory, payment gateway, and admin dashboard.</p>
+            <a href="pages/portfolio.html" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-img-placeholder" style="background:linear-gradient(135deg,#0a0a2a,#1a0030);">🎮</div>
+          <div class="project-body">
+            <span class="project-type">Unity Game</span>
+            <h3>Galaxy Runners — Mobile Game</h3>
+            <p>Hyper-casual endless runner with 50K+ downloads on Play Store. Monetized with ads + IAP.</p>
+            <a href="pages/portfolio.html" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-img-placeholder" style="background:linear-gradient(135deg,#001a1a,#003030);">📱</div>
+          <div class="project-body">
+            <span class="project-type">Flutter App</span>
+            <h3>HealthSync — Fitness Tracker</h3>
+            <p>Cross-platform fitness app with AI workout recommendations, progress tracking, and social features.</p>
+            <a href="pages/portfolio.html" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="pages/portfolio.html" class="btn btn-outline">View All Projects →</a>
+      </div>
     </div>
-    <p class="section-sub">A proven process refined across 120+ projects.</p>
-  </div>
+  </section>
 
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-dot">01</div>
-      <h3 class="step-title">Discover</h3>
-      <p class="step-desc">Deep-dive into your goals, users, and market. We map the problem space before writing a single line of code.</p>
+  <hr class="glow-divider">
+
+  <!-- ═══════════════════════════════════════════
+    TECHNOLOGIES PREVIEW
+  ═══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="tech-heading">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag" aria-hidden="true">Tech Stack</div>
+        <h2 id="tech-heading" class="section-title reveal">
+          We Build With the <span>Best Tools</span>
+        </h2>
+        <p class="section-subtitle reveal">
+          Modern. Proven. Scalable. The technologies we trust to deliver world-class products.
+        </p>
+      </div>
+
+      <div class="tech-grid stagger-children" aria-label="Technology stack">
+        <div class="tech-item" title="Flutter">
+          <div class="tech-icon" aria-hidden="true">💙</div>
+          <span>Flutter</span>
+        </div>
+        <div class="tech-item" title="Unity Game Engine">
+          <div class="tech-icon" aria-hidden="true">🎮</div>
+          <span>Unity</span>
+        </div>
+        <div class="tech-item" title="React">
+          <div class="tech-icon" aria-hidden="true">⚛️</div>
+          <span>React</span>
+        </div>
+        <div class="tech-item" title="Node.js">
+          <div class="tech-icon" aria-hidden="true">🟩</div>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-item" title="Python">
+          <div class="tech-icon" aria-hidden="true">🐍</div>
+          <span>Python</span>
+        </div>
+        <div class="tech-item" title="Firebase">
+          <div class="tech-icon" aria-hidden="true">🔥</div>
+          <span>Firebase</span>
+        </div>
+        <div class="tech-item" title="MongoDB">
+          <div class="tech-icon" aria-hidden="true">🍃</div>
+          <span>MongoDB</span>
+        </div>
+        <div class="tech-item" title="Figma">
+          <div class="tech-icon" aria-hidden="true">🎨</div>
+          <span>Figma</span>
+        </div>
+        <div class="tech-item" title="AWS">
+          <div class="tech-icon" aria-hidden="true">☁️</div>
+          <span>AWS</span>
+        </div>
+        <div class="tech-item" title="C Sharp">
+          <div class="tech-icon" aria-hidden="true">💜</div>
+          <span>C#</span>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="pages/technologies.html" class="btn btn-ghost">Full Tech Stack →</a>
+      </div>
     </div>
-    <div class="process-step reveal" style="transition-delay:0.1s">
-      <div class="step-dot">02</div>
-      <h3 class="step-title">Design</h3>
-      <p class="step-desc">Wireframes evolve into high-fidelity prototypes. Every interaction is intentional, every pixel considered.</p>
+  </section>
+
+  <hr class="glow-divider">
+
+  <!-- ═══════════════════════════════════════════
+    TESTIMONIAL PREVIEW
+  ═══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag" aria-hidden="true">Client Love</div>
+        <h2 id="testimonials-heading" class="section-title reveal">
+          What Our <span>Clients Say</span>
+        </h2>
+      </div>
+      <div class="grid grid-3 stagger-children">
+        <article class="card testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"JD Tech Sage built our e-commerce app in record time. The quality blew us away. They're not just developers — they're problem solvers."</p>
+          <div class="testimonial-author">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#00f0ff,#0070ff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--accent-cyan);">👨</div>
+            <div>
+              <div class="author-name">Rajesh Patel</div>
+              <div class="author-role">Founder, TechMart India</div>
+            </div>
+          </div>
+        </article>
+        <article class="card testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"Our Unity game went from idea to Play Store in 3 months. The team's understanding of game mechanics is impressive. Already planning our next project with them."</p>
+          <div class="testimonial-author">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7b2fff,#0070ff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--accent-purple);">👩</div>
+            <div>
+              <div class="author-name">Priya Sharma</div>
+              <div class="author-role">CEO, GameZone Studios</div>
+            </div>
+          </div>
+        </article>
+        <article class="card testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"The LAN networking setup for our factory floor was flawless. Zero downtime in 8 months. Best IT investment we've made."</p>
+          <div class="testimonial-author">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#00ff88,#00f0ff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--accent-green);">👨</div>
+            <div>
+              <div class="author-name">Suresh Mehta</div>
+              <div class="author-role">Director, Mehta Industries</div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="text-center mt-5">
+        <a href="pages/testimonials.html" class="btn btn-ghost">Read All Reviews →</a>
+      </div>
     </div>
-    <div class="process-step reveal" style="transition-delay:0.2s">
-      <div class="step-dot">03</div>
-      <h3 class="step-title">Build</h3>
-      <p class="step-desc">Agile sprints with daily check-ins. Clean code, thorough testing, and continuous deployment pipeline.</p>
+  </section>
+
+  <hr class="glow-divider">
+
+  <!-- ═══════════════════════════════════════════
+    BLOG PREVIEW
+  ═══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="blog-heading">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag" aria-hidden="true">Insights</div>
+        <h2 id="blog-heading" class="section-title reveal">
+          From Our <span>Blog</span>
+        </h2>
+        <p class="section-subtitle reveal">Tech explained simply. No jargon. Just good reads.</p>
+      </div>
+      <div class="grid grid-3 stagger-children">
+        <article class="card blog-card">
+          <div class="blog-img-placeholder" style="background:linear-gradient(135deg,#0a1428,#003060);">💰</div>
+          <div class="project-body" style="padding:20px 0 0;">
+            <span class="blog-category">App Development</span>
+            <h3><a href="blog/cost-to-build-app-india.html" style="color:inherit;">How Much Does It Cost to Build an App in India? (2025)</a></h3>
+            <p style="font-size:0.85rem;">Spoiler: it's way less than you think. We break it down honestly.</p>
+            <div class="blog-meta">
+              <span>📅 Jan 2025</span>
+              <span>⏱ 5 min read</span>
+            </div>
+          </div>
+        </article>
+        <article class="card blog-card">
+          <div class="blog-img-placeholder" style="background:linear-gradient(135deg,#0a0028,#200060);">⚔️</div>
+          <div class="project-body" style="padding:20px 0 0;">
+            <span class="blog-category">Game Dev</span>
+            <h3><a href="blog/unity-vs-unreal.html" style="color:inherit;">Unity vs Unreal: Which Game Engine Should You Pick?</a></h3>
+            <p style="font-size:0.85rem;">The age-old debate, finally settled. (Spoiler: depends on your game!)</p>
+            <div class="blog-meta">
+              <span>📅 Feb 2025</span>
+              <span>⏱ 7 min read</span>
+            </div>
+          </div>
+        </article>
+        <article class="card blog-card">
+          <div class="blog-img-placeholder" style="background:linear-gradient(135deg,#001a0a,#003020);">⏱️</div>
+          <div class="project-body" style="padding:20px 0 0;">
+            <span class="blog-category">Web Dev</span>
+            <h3><a href="blog/how-long-to-build-website.html" style="color:inherit;">How Long Does It Take to Build a Website? Real Timeline</a></h3>
+            <p style="font-size:0.85rem;">Not "2–4 weeks". Here's the honest breakdown for every type.</p>
+            <div class="blog-meta">
+              <span>📅 Mar 2025</span>
+              <span>⏱ 4 min read</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="text-center mt-5">
+        <a href="pages/blog.html" class="btn btn-ghost">Read All Articles →</a>
+      </div>
     </div>
-    <div class="process-step reveal" style="transition-delay:0.3s">
-      <div class="step-dot">04</div>
-      <h3 class="step-title">Launch</h3>
-      <p class="step-desc">We don't ship and vanish. Post-launch monitoring, optimization, and iterative improvement is baked in.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+    CTA BAND
+  ═══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div class="section-tag" style="margin-bottom:20px;" aria-hidden="true">Ready to Start?</div>
+        <h2 id="cta-heading">Your Next Big Thing Starts with<br><span class="text-cyan">One Conversation</span></h2>
+        <p>No commitment. No pressure. Just a free 30-minute call to understand your vision and how we can help.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="pages/services.html#contact" class="btn btn-primary">🚀 Start Your Project</a>
+          <a href="pages/nda.html" class="btn btn-outline">🔒 Sign NDA First</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TECH STACK -->
-<section class="tech-section">
-  <div class="section-header reveal">
-    <div>
-      <span class="section-num">04 / Technology</span>
-      <h2 class="section-title">Our Stack</h2>
-    </div>
-  </div>
-  <div class="tech-grid reveal">
-    <div class="tech-item"><div class="tech-emoji">⚛️</div><div class="tech-name">React</div></div>
-    <div class="tech-item"><div class="tech-emoji">▲</div><div class="tech-name">Next.js</div></div>
-    <div class="tech-item"><div class="tech-emoji">🦕</div><div class="tech-name">TypeScript</div></div>
-    <div class="tech-item"><div class="tech-emoji">🟢</div><div class="tech-name">Node.js</div></div>
-    <div class="tech-item"><div class="tech-emoji">🎮</div><div class="tech-name">Unity</div></div>
-    <div class="tech-item"><div class="tech-emoji">🎯</div><div class="tech-name">Flutter</div></div>
-    <div class="tech-item"><div class="tech-emoji">🐍</div><div class="tech-name">Python</div></div>
-    <div class="tech-item"><div class="tech-emoji">🔥</div><div class="tech-name">Firebase</div></div>
-    <div class="tech-item"><div class="tech-emoji">☁️</div><div class="tech-name">AWS</div></div>
-    <div class="tech-item"><div class="tech-emoji">🐳</div><div class="tech-name">Docker</div></div>
-    <div class="tech-item"><div class="tech-emoji">📊</div><div class="tech-name">GraphQL</div></div>
-    <div class="tech-item"><div class="tech-emoji">🔐</div><div class="tech-name">Web3</div></div>
-  </div>
-</section>
+  <!-- Footer (injected by components.js) -->
+  <div id="footer-placeholder"></div>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-bg"></div>
-  <div class="reveal">
-    <h2 class="cta-title">Ready to Build<br><span class="accent-word">Something</span><br>Remarkable?</h2>
-    <p class="cta-sub">Tell us your vision. We'll make it real — faster, better, and more polished than you imagined.</p>
-    <div class="cta-btns">
-      <a href="page2.html" class="btn-primary animated-border">Start a Project</a>
-      <a href="page2.html" class="btn-ghost">See Pricing →</a>
-    </div>
-  </div>
-</section>
+  <!-- ── Scripts ── -->
+  <!-- components.js must load BEFORE main.js -->
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
 
-<!-- FOOTER -->
-<footer>
-  <div>
-    <div class="logo" style="margin-bottom:16px; text-decoration:none; display:flex; align-items:center; gap:10px;">
-      <div class="logo-icon">JD</div>
-      <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;">JD Tech Sage</span>
-    </div>
-    <div class="footer-left">© 2025 JD Tech Sage. All rights reserved.</div>
-  </div>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#work">Work</a>
-    <a href="page2.html">About</a>
-    <a href="page2.html">Contact</a>
-    <a href="page2.html" class="page2-link">View Page 2 →</a>
-  </div>
-</footer>
-
-<script>
-// Custom cursor
-const cursor = document.getElementById('cursor');
-const trail = document.getElementById('cursorTrail');
-let mouseX = 0, mouseY = 0, trailX = 0, trailY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.left = mouseX - 6 + 'px';
-  cursor.style.top = mouseY - 6 + 'px';
-});
-
-function animateTrail() {
-  trailX += (mouseX - trailX) * 0.12;
-  trailY += (mouseY - trailY) * 0.12;
-  trail.style.left = trailX - 18 + 'px';
-  trail.style.top = trailY - 18 + 'px';
-  requestAnimationFrame(animateTrail);
-}
-animateTrail();
-
-document.querySelectorAll('a, button, .service-card, .work-card, .tech-item').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'scale(2.5)';
-    trail.style.transform = 'scale(1.5)';
-    trail.style.borderColor = 'rgba(0,245,196,0.8)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'scale(1)';
-    trail.style.transform = 'scale(1)';
-    trail.style.borderColor = 'rgba(0,245,196,0.5)';
-  });
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Counter animation
-const counters = document.querySelectorAll('.counter');
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const target = parseInt(entry.target.getAttribute('data-target'));
-      let current = 0;
-      const step = target / 60;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        entry.target.textContent = Math.round(current);
-      }, 20);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-counters.forEach(c => counterObserver.observe(c));
-
-// Particles
-const particlesContainer = document.getElementById('particles');
-for (let i = 0; i < 20; i++) {
-  const p = document.createElement('div');
-  p.className = 'particle';
-  const colors = ['var(--accent)', 'var(--accent2)', 'var(--accent3)'];
-  p.style.cssText = `
-    left: ${Math.random() * 100}%;
-    --dur: ${6 + Math.random() * 8}s;
-    --delay: ${-Math.random() * 10}s;
-    --dx: ${(Math.random() - 0.5) * 100}px;
-    background: ${colors[Math.floor(Math.random() * 3)]};
-    width: ${1 + Math.random() * 2}px;
-    height: ${1 + Math.random() * 2}px;
-  `;
-  particlesContainer.appendChild(p);
-}
-
-// Nav scroll effect
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (window.scrollY > 50) {
-    nav.style.background = 'rgba(3,5,9,0.95)';
-  } else {
-    nav.style.background = 'rgba(3,5,9,0.6)';
-  }
-});
-</script>
 </body>
 </html>
