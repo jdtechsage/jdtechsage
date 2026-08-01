@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Account & Data — SafeCircle</title>
+<meta name="description" content="How to request deletion of your SafeCircle account and personal data, in-app or by email.">
+<link rel="canonical" href="https://www.jdtechsage.com/safecircle/delete-account.html">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav is-scrolled">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/img/logo.svg" alt="SafeCircle logo">SafeCircle</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how-it-works">How it works</a></li>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#privacy">Privacy</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta"><a href="index.html#download" class="btn btn-ghost">Download</a></div>
+  </div>
+</nav>
+
+<header class="legal-hero">
+  <div class="container">
+    <span class="eyebrow">Account</span>
+    <h1>Delete your account & data</h1>
+    <p>You're in control of your SafeCircle data. Here's how to remove your account, and exactly what happens to your information when you do.</p>
+  </div>
+</header>
+
+<section class="legal-body">
+  <div class="container legal-wrap">
+
+    <h2>Option 1 — Delete from within the app</h2>
+    <ol class="steps-list" style="display:flex; flex-direction:column; gap:14px; padding-left:0; list-style:none;">
+      <li>Open the SafeCircle app and go to <strong>Profile</strong>.</li>
+      <li>Tap <strong>Settings</strong>, then <strong>Account</strong>.</li>
+      <li>Select <strong>Delete Account</strong> and confirm your identity when prompted.</li>
+      <li>Confirm the deletion. Your account is deactivated immediately and queued for permanent removal.</li>
+    </ol>
+
+    <h2>Option 2 — Request by email</h2>
+    <p>If you no longer have access to the app, email <a href="mailto:support@jdtechsage.com?subject=SafeCircle%20Account%20Deletion%20Request">support@jdtechsage.com</a> from the address linked to your account with the subject line "Account Deletion Request," including the phone number or email used to sign up. We will verify your request and process it within 30 days.</p>
+
+    <div class="notice-box">
+      Deletion is permanent. Once processed, your profile, saved reports, and reporter verification details cannot be recovered.
+    </div>
+
+    <h2>What gets deleted</h2>
+    <ul>
+      <li>Your profile — name, email/phone, and location details.</li>
+      <li>Reporter verification details (contact number, email) linked to any reports you submitted.</li>
+      <li>Your saved reports list and comment history tied to your account.</li>
+      <li>Your login credentials in Firebase Authentication.</li>
+    </ul>
+
+    <h2>What may be retained</h2>
+    <ul>
+      <li>Reports you submitted that were already approved and published remain visible as anonymized public safety information, since your identifying details are stripped from published reports at the point of approval — this content was never linked to your identity for other users.</li>
+      <li>Records we're required to keep for a limited period to comply with legal obligations, resolve disputes, or enforce our <a href="terms-and-conditions.html">Terms & Conditions</a>.</li>
+    </ul>
+
+    <h2>Timeline</h2>
+    <p>Account deactivation is immediate. Full deletion of your personal data from our systems is completed within 30 days of a verified request.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> JD Tech Sage. SafeCircle is developed and maintained by JD Tech Sage.</span>
+      <span><a href="index.html">Back to SafeCircle home</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

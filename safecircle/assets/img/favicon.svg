@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SafeCircle logo">
+  <circle cx="32" cy="32" r="31" fill="#0F1B2D"/>
+  <circle cx="32" cy="32" r="24" stroke="#F2A93B" stroke-width="1.4" opacity="0.45"/>
+  <circle cx="32" cy="32" r="17" stroke="#F2A93B" stroke-width="1.4" opacity="0.7"/>
+  <circle cx="32" cy="32" r="10" stroke="#1B8A7D" stroke-width="1.6"/>
+  <circle cx="32" cy="32" r="3.4" fill="#F2A93B"/>
+</svg>
