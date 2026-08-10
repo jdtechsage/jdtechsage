@@ -27,7 +27,7 @@ No build step, no dependencies — plain HTML/CSS/JS.
 1. **Domain / canonical URLs** — every page has `<link rel="canonical">` and Open Graph tags pointing to `https://www.jdtechsage.com/safecircle/`. Update the domain in each HTML file (and in `robots.txt` / `sitemap.xml`) to match where you actually deploy it.
 2. **Google Play link** — the Download button links to `https://play.google.com/store/apps/details?id=com.jdtechsage.safecircle`. This will resolve automatically once the app is published under that package ID; until then it will show a "not found" page on the Play Store.
 3. **App Store button** — currently shown disabled ("coming soon") since no iOS bundle ID was provided. Update `index.html` once an iOS build exists.
-4. **Support email** — replace `support@jdtechsage.com` throughout if that isn't the right inbox.
+4. **Support email** — replace `safecircle.jdtechsage@gmail.com` throughout if that isn't the right inbox.
 5. **Legal pages** — the Privacy Policy, Terms & Conditions, and account-deletion page are drafted from the app's described functionality. Have them reviewed by someone qualified before relying on them for Play Store submission or legal compliance.
 
 ## Deploying to GitHub Pages (as jdtechsage.com/safecircle)
