@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 1 — Forex Foundations</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --black: #080810;
+  --panel: #0F0F1C;
+  --card: #13131F;
+  --border: #1C1C30;
+  --border2: #242438;
+  --green: #00E87A;
+  --green-dim: #00E87A18;
+  --green-mid: #00E87A44;
+  --amber: #FFB800;
+  --amber-dim: #FFB80018;
+  --red: #FF4D6A;
+  --red-dim: #FF4D6A18;
+  --blue: #5B9AFF;
+  --blue-dim: #5B9AFF15;
+  --purple: #A78BFA;
+  --purple-dim: #A78BFA15;
+  --muted: #454560;
+  --text: #B8B8D8;
+  --white: #EEEEFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* TICKER */
+.ticker { background: var(--panel); border-bottom: 1px solid var(--border); padding: 7px 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-block; animation: tick 28s linear infinite; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); }
+.ticker-track span { margin: 0 28px; }
+.up { color: var(--green); }
+.dn { color: var(--red); }
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* NAV BREADCRUMB */
+.breadcrumb {
+  max-width: 960px; margin: 0 auto; padding: 20px 24px 0;
+  font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.breadcrumb a { color: var(--green); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* HERO */
+.hero {
+  max-width: 960px; margin: 0 auto; padding: 40px 24px 32px;
+  display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start;
+}
+@media (max-width: 640px) { .hero { grid-template-columns: 1fr; } }
+.hero-left {}
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 52px); font-weight: 700;
+  color: var(--white); line-height: 1.08; letter-spacing: -1.5px; margin-bottom: 14px;
+}
+.hero h1 span { color: var(--green); }
+.hero p { font-size: 15px; line-height: 1.7; color: var(--text); max-width: 520px; }
+.hero-meta {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; min-width: 180px; display: flex; flex-direction: column; gap: 14px;
+}
+.hero-meta-item {}
+.meta-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.meta-val { font-size: 14px; font-weight: 600; color: var(--white); }
+.meta-val.green { color: var(--green); }
+.meta-val.amber { color: var(--amber); }
+
+/* CHAPTER NAV */
+.chapter-nav {
+  max-width: 960px; margin: 0 auto; padding: 0 24px 28px;
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.ch-btn {
+  padding: 7px 14px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 11px;
+  cursor: pointer; border: 1px solid var(--border); background: var(--panel); color: var(--muted);
+  transition: all 0.2s;
+}
+.ch-btn:hover, .ch-btn.active { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+
+/* DIVIDER */
+.divider { max-width: 960px; margin: 0 auto 32px; padding: 0 24px; }
+.divider hr { border: none; border-top: 1px solid var(--border); }
+
+/* MAIN */
+main { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; display: flex; flex-direction: column; gap: 32px; }
+
+/* CHAPTER */
+.chapter { scroll-margin-top: 24px; }
+.ch-header {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.ch-tag {
+  font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+  background: var(--green-dim); color: var(--green); border: 1px solid var(--green-mid);
+  border-radius: 4px; padding: 4px 10px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;
+}
+.ch-title { font-size: 20px; font-weight: 700; color: var(--white); }
+.ch-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+/* CARDS GRID */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px;
+}
+.card-icon { font-size: 22px; margin-bottom: 10px; }
+.card-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.card-body { font-size: 13px; line-height: 1.65; color: var(--text); }
+.card-body strong { color: var(--white); }
+.card.blue { border-color: #5B9AFF22; background: #0A0A18; }
+.card.green { border-color: #00E87A22; }
+.card.amber { border-color: #FFB80022; }
+.card.purple { border-color: #A78BFA22; }
+
+/* CALLOUTS */
+.callout {
+  border-radius: 10px; padding: 16px 18px; margin: 16px 0; font-size: 13px; line-height: 1.65;
+}
+.callout strong { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+.callout.mistake { background: var(--red-dim); border: 1px solid #FF4D6A33; border-left: 3px solid var(--red); color: #FFB0BA; }
+.callout.mistake strong { color: var(--red); }
+.callout.lesson { background: var(--green-dim); border: 1px solid #00E87A33; border-left: 3px solid var(--green); color: #A0FFD0; }
+.callout.lesson strong { color: var(--green); }
+.callout.info { background: var(--blue-dim); border: 1px solid #5B9AFF28; border-left: 3px solid var(--blue); color: #B0CCFF; }
+.callout.info strong { color: var(--blue); }
+.callout.tip { background: var(--amber-dim); border: 1px solid #FFB80028; border-left: 3px solid var(--amber); color: #FFE0A0; }
+.callout.tip strong { color: var(--amber); }
+
+p { font-size: 14px; line-height: 1.75; color: var(--text); margin-bottom: 12px; }
+h3 { font-size: 13px; font-weight: 700; color: var(--white); font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 1px; margin: 24px 0 10px; }
+h3:first-child { margin-top: 0; }
+
+ul.rlist { list-style: none; margin: 8px 0 16px; }
+ul.rlist li { padding: 9px 0 9px 22px; position: relative; font-size: 13px; line-height: 1.6; color: var(--text); border-bottom: 1px solid var(--border); }
+ul.rlist li:last-child { border-bottom: none; }
+ul.rlist li::before { content: '▸'; position: absolute; left: 0; color: var(--green); font-size: 11px; top: 11px; }
+ul.rlist li strong { color: var(--white); }
+
+/* INTERACTIVE PAIR DEMO */
+.pair-demo {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px; margin: 20px 0;
+}
+.pair-demo h4 { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.pair-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 560px) { .pair-grid { grid-template-columns: 1fr 1fr; } }
+.pair-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px;
+  cursor: pointer; transition: all 0.2s;
+}
+.pair-card:hover, .pair-card.selected { border-color: var(--green); background: var(--green-dim); }
+.pair-name { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--white); }
+.pair-type { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.pair-price { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--green); margin-top: 6px; }
+.pair-detail {
+  margin-top: 16px; padding: 16px; background: var(--card); border-radius: 8px;
+  border: 1px solid var(--border); font-size: 13px; line-height: 1.7; color: var(--text);
+  display: none;
+}
+.pair-detail.show { display: block; }
+.pair-detail strong { color: var(--white); }
+
+/* PIP CALCULATOR */
+.pip-calc {
+  background: var(--panel); border: 1px solid var(--border2); border-radius: 12px; padding: 24px; margin: 20px 0;
+}
+.pip-calc h4 { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-field label { font-size: 11px; font-family: 'Space Mono', monospace; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+.calc-field select, .calc-field input {
+  width: 100%; background: var(--card); border: 1px solid var(--border2); border-radius: 6px;
+  color: var(--white); font-family: 'Space Mono', monospace; font-size: 13px; padding: 10px 12px;
+  outline: none; transition: border-color 0.2s;
+}
+.calc-field select:focus, .calc-field input:focus { border-color: var(--green); }
+.calc-result {
+  margin-top: 16px; background: var(--black); border: 1px solid var(--green-mid); border-radius: 8px;
+  padding: 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+@media (max-width: 560px) { .calc-result { grid-template-columns: 1fr 1fr; } }
+.result-item {}
+.result-label { font-size: 10px; font-family: 'Space Mono', monospace; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.result-val { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--green); }
+.result-val.amber { color: var(--amber); }
+.result-val.red { color: var(--red); }
+
+/* SESSION CLOCK */
+.session-chart {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0;
+}
+.session-chart h4 { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.session-bar-wrap { position: relative; margin-bottom: 14px; }
+.session-label-row { display: flex; gap: 0; margin-bottom: 8px; font-size: 10px; font-family: 'Space Mono', monospace; color: var(--muted); }
+.session-label-row span { flex: 1; text-align: center; }
+.session-timeline { height: 36px; background: var(--black); border-radius: 6px; overflow: hidden; display: flex; position: relative; border: 1px solid var(--border); }
+.session-block { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: 'Space Mono', monospace; font-weight: 700; letter-spacing: 1px; transition: opacity 0.3s; }
+.ses-sydney { background: #3D9AFF33; color: #3D9AFF; border-right: 1px solid #3D9AFF44; }
+.ses-tokyo { background: #A78BFA33; color: #A78BFA; border-right: 1px solid #A78BFA44; }
+.ses-london { background: #00E87A33; color: #00E87A; border-right: 1px solid #00E87A44; }
+.ses-newyork { background: #FFB80033; color: #FFB800; }
+.ses-overlap { background: #FF4D6A22; color: var(--red); }
+.current-time-line { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--white); opacity: 0.6; transition: left 0.5s; }
+.session-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; }
+@media (max-width: 480px) { .session-cards { grid-template-columns: 1fr; } }
+.ses-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.ses-card-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.ses-card-time { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.ses-card-body { font-size: 12px; line-height: 1.6; color: var(--text); }
+.ses-status { display: inline-block; font-size: 10px; font-family: 'Space Mono', monospace; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+.ses-active { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-mid); }
+.ses-closed { background: var(--border); color: var(--muted); }
+
+/* QUIZ */
+.quiz-section {
+  background: var(--panel); border: 1px solid var(--border2); border-radius: 12px; padding: 24px; margin: 20px 0;
+}
+.quiz-section h4 { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.quiz-section p.quiz-intro { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.quiz-q { margin-bottom: 24px; }
+.quiz-q-text { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 12px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  padding: 11px 16px; border-radius: 7px; border: 1px solid var(--border2); background: var(--card);
+  cursor: pointer; font-size: 13px; color: var(--text); transition: all 0.2s; text-align: left;
+}
+.quiz-opt:hover:not(.answered) { border-color: var(--blue); color: var(--white); }
+.quiz-opt.correct { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+.quiz-opt.wrong { background: var(--red-dim); border-color: var(--red); color: var(--red); }
+.quiz-opt.neutral { opacity: 0.4; cursor: default; }
+.quiz-explain { margin-top: 10px; padding: 12px 14px; background: var(--black); border-radius: 7px; font-size: 13px; line-height: 1.6; color: var(--text); border: 1px solid var(--border); display: none; }
+.quiz-explain.show { display: block; }
+.quiz-score {
+  text-align: center; padding: 24px; background: var(--black); border-radius: 10px;
+  border: 1px solid var(--green-mid); display: none;
+}
+.quiz-score.show { display: block; }
+.score-num { font-family: 'Space Mono', monospace; font-size: 48px; font-weight: 700; color: var(--green); }
+.score-label { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+/* MARKET PLAYERS */
+.players-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+@media (max-width: 560px) { .players-grid { grid-template-columns: 1fr; } }
+.player-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.player-icon { font-size: 26px; margin-bottom: 8px; }
+.player-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.player-share { font-family: 'Space Mono', monospace; font-size: 11px; margin-bottom: 8px; }
+.share-bar { height: 4px; background: var(--border); border-radius: 2px; margin: 6px 0; overflow: hidden; }
+.share-fill { height: 100%; border-radius: 2px; }
+.player-desc { font-size: 12px; line-height: 1.6; color: var(--text); }
+
+/* NEWS TABLE */
+.news-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.news-table th { text-align: left; padding: 10px 12px; background: #0A0A14; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); }
+.news-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+.news-table tr:last-child td { border-bottom: none; }
+.impact { font-family: 'Space Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 10px; }
+.high { background: var(--red-dim); color: var(--red); border: 1px solid #FF4D6A33; }
+.med { background: var(--amber-dim); color: var(--amber); border: 1px solid #FFB80033; }
+.low { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-mid); }
+
+/* LEVERAGE TABLE */
+.lev-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+.lev-table th { text-align: left; padding: 10px 12px; background: #0A0A14; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); }
+.lev-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 12px; }
+.lev-table tr:last-child td { border-bottom: none; }
+.lev-table .gn { color: var(--green); }
+.lev-table .rd { color: var(--red); }
+.lev-table .am { color: var(--amber); }
+
+/* WEEK PLAN */
+.week-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+@media (max-width: 560px) { .week-plan { grid-template-columns: 1fr; } }
+.week-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.week-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--green); letter-spacing: 1px; margin-bottom: 6px; }
+.week-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.week-tasks { font-size: 12px; line-height: 1.8; color: var(--text); }
+.week-tasks li { padding-left: 14px; position: relative; }
+.week-tasks li::before { content: '·'; position: absolute; left: 2px; color: var(--green); }
+
+/* COMPLETE BTN */
+.complete-btn {
+  display: flex; align-items: center; gap: 10px; padding: 14px 24px;
+  background: var(--green-dim); border: 1px solid var(--green-mid); border-radius: 10px;
+  color: var(--green); font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s; width: fit-content; margin: 32px auto 0;
+  letter-spacing: 1px;
+}
+.complete-btn:hover { background: #00E87A22; border-color: var(--green); }
+.complete-btn.done { background: transparent; color: var(--muted); border-color: var(--border); cursor: default; }
+
+footer { border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; }
+
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>EUR/USD <span class="up">1.0842 ▲+0.12%</span></span>
+    <span>GBP/USD <span class="dn">1.2691 ▼-0.08%</span></span>
+    <span>USD/JPY <span class="up">157.34 ▲+0.21%</span></span>
+    <span>USD/CHF <span class="dn">0.8923 ▼-0.05%</span></span>
+    <span>AUD/USD <span class="up">0.6647 ▲+0.14%</span></span>
+    <span>USD/CAD <span class="up">1.3714 ▲+0.09%</span></span>
+    <span>EUR/JPY <span class="up">170.56 ▲+0.33%</span></span>
+    <span>XAU/USD <span class="up">2341 ▲+0.7%</span></span>
+    &nbsp;&nbsp;&nbsp;
+    <span>EUR/USD <span class="up">1.0842 ▲+0.12%</span></span>
+    <span>GBP/USD <span class="dn">1.2691 ▼-0.08%</span></span>
+    <span>USD/JPY <span class="up">157.34 ▲+0.21%</span></span>
+    <span>USD/CHF <span class="dn">0.8923 ▼-0.05%</span></span>
+    <span>AUD/USD <span class="up">0.6647 ▲+0.14%</span></span>
+    <span>USD/CAD <span class="up">1.3714 ▲+0.09%</span></span>
+    <span>EUR/JPY <span class="up">170.56 ▲+0.33%</span></span>
+    <span>XAU/USD <span class="up">2341 ▲+0.7%</span></span>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Prop Trader Path</a>
+  <span>›</span>
+  <span style="color:var(--text)">Stage 1 — Forex Foundations</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Stage 01 of 08 · Foundation Phase</div>
+    <h1>Forex<br><span>Foundations</span></h1>
+    <p>Everything a complete beginner needs to understand the forex market before touching a chart. Get this wrong and no strategy will save you.</p>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="meta-label">Duration</div>
+      <div class="meta-val amber">2–4 Weeks</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Level</div>
+      <div class="meta-val green">Beginner</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Chapters</div>
+      <div class="meta-val">7 Topics</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Quiz</div>
+      <div class="meta-val amber">10 Questions</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER NAV -->
+<div class="chapter-nav">
+  <div class="ch-btn active" onclick="scrollTo('ch1', this)">What is Forex</div>
+  <div class="ch-btn" onclick="scrollTo('ch2', this)">Currency Pairs</div>
+  <div class="ch-btn" onclick="scrollTo('ch3', this)">Pips & Lot Sizes</div>
+  <div class="ch-btn" onclick="scrollTo('ch4', this)">Market Sessions</div>
+  <div class="ch-btn" onclick="scrollTo('ch5', this)">Market Players</div>
+  <div class="ch-btn" onclick="scrollTo('ch6', this)">Leverage & Margin</div>
+  <div class="ch-btn" onclick="scrollTo('ch7', this)">Economic News</div>
+  <div class="ch-btn" onclick="scrollTo('quiz', this)">📝 Quiz</div>
+</div>
+
+<div class="divider"><hr></div>
+
+<main>
+
+<!-- ═══════════════════════════════════════ CH 1 ═══ -->
+<section class="chapter" id="ch1">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 1</div>
+    <div>
+      <div class="ch-title">What is the Forex Market?</div>
+      <div class="ch-desc">The world's largest financial market — and why retail traders are the smallest players</div>
+    </div>
+  </div>
+
+  <p>Forex (foreign exchange) is the global market where currencies are bought and sold. Unlike stocks, there is no central exchange — it runs 24 hours a day, 5 days a week, across four major financial centers: Sydney, Tokyo, London, and New York.</p>
+
+  <p>When you travel abroad and exchange dollars for euros, you're participating in forex. Traders do the same thing, but speculate on whether one currency will rise or fall in value relative to another.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🌍</div>
+      <div class="card-title">$7.5 Trillion Daily</div>
+      <div class="card-body">More money trades hands in forex every single day than the entire US stock market does in a <strong>month</strong>. It's the most liquid market on Earth — you can enter or exit almost any position instantly.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🕐</div>
+      <div class="card-title">24 Hours, 5 Days</div>
+      <div class="card-body">Forex never sleeps on weekdays. When New York closes, Sydney opens. This means you can trade early morning, lunch, or late at night — but <strong>not all hours are equal</strong>.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏦</div>
+      <div class="card-title">Decentralized Market</div>
+      <div class="card-body">No single exchange controls forex. Banks, institutions, and brokers trade directly with each other (OTC — Over the Counter). Your broker gives you access to this network.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <div class="card-title">Retail Access</div>
+      <div class="card-body">Before the internet, only banks could trade forex. Now, with $100 and a phone, anyone can access the same markets. This is both an opportunity and a <strong>warning</strong>.</div>
+    </div>
+  </div>
+
+  <div class="callout mistake">
+    <strong>⚡ Common Mistake — Thinking it's like stocks</strong>
+    Stocks = you own part of a company. Forex = you're betting on one currency's value vs another. There are no dividends, no earnings reports, no "company fundamentals" to study. The drivers are different: interest rates, inflation, geopolitics, and economic data.
+  </div>
+
+  <h3>Why Do Exchange Rates Move?</h3>
+  <p>Every country's currency has a relative value to others. This value changes constantly based on:</p>
+  <ul class="rlist">
+    <li><strong>Interest rates:</strong> Higher rates attract foreign investment → stronger currency. When the US Fed raises rates, USD often strengthens.</li>
+    <li><strong>Economic data:</strong> Strong GDP, low unemployment, high exports → currency tends to rise.</li>
+    <li><strong>Inflation:</strong> High inflation erodes purchasing power → currency weakens over time.</li>
+    <li><strong>Geopolitical events:</strong> War, elections, trade disputes → sudden sharp moves in related currencies.</li>
+    <li><strong>Market sentiment:</strong> Risk-on = traders buy riskier currencies (AUD, NZD). Risk-off = flee to safe havens (JPY, CHF, USD).</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>ℹ️ Real Example</strong>
+    In March 2020 (COVID crash), the Japanese Yen (JPY) and US Dollar (USD) both surged while the Australian Dollar (AUD) fell sharply. Why? Investors fled to "safe haven" currencies. This risk-on/risk-off behavior is one of the most consistent patterns in forex.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CH 2 ═══ -->
+<section class="chapter" id="ch2">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 2</div>
+    <div>
+      <div class="ch-title">Currency Pairs Explained</div>
+      <div class="ch-desc">Majors, minors, exotics — and how to read a price quote</div>
+    </div>
+  </div>
+
+  <p>Forex always trades in <strong>pairs</strong>. You're always buying one currency and selling another at the same time. A pair like EUR/USD means: how many US Dollars does one Euro cost?</p>
+
+  <div class="callout info">
+    <strong>📖 Reading a Currency Pair</strong>
+    EUR/USD = 1.0842 means: 1 Euro costs $1.0842 US Dollars.<br>
+    The LEFT currency (EUR) is the <strong>base</strong>. The RIGHT (USD) is the <strong>quote</strong>.<br>
+    If EUR/USD goes UP → Euro is getting stronger vs Dollar.<br>
+    If EUR/USD goes DOWN → Euro is getting weaker vs Dollar (or Dollar is strengthening).
+  </div>
+
+  <h3>Click a pair to learn more</h3>
+
+  <div class="pair-demo">
+    <h4>📊 Explore Major, Minor & Exotic Pairs</h4>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="showPair('eurusd', this)">
+        <div class="pair-name">EUR/USD</div>
+        <div class="pair-type">Major</div>
+        <div class="pair-price">1.0842</div>
+      </div>
+      <div class="pair-card" onclick="showPair('gbpusd', this)">
+        <div class="pair-name">GBP/USD</div>
+        <div class="pair-type">Major</div>
+        <div class="pair-price">1.2691</div>
+      </div>
+      <div class="pair-card" onclick="showPair('usdjpy', this)">
+        <div class="pair-name">USD/JPY</div>
+        <div class="pair-type">Major</div>
+        <div class="pair-price">157.34</div>
+      </div>
+      <div class="pair-card" onclick="showPair('eurgbp', this)">
+        <div class="pair-name">EUR/GBP</div>
+        <div class="pair-type">Minor (Cross)</div>
+        <div class="pair-price">0.8540</div>
+      </div>
+      <div class="pair-card" onclick="showPair('audjpy', this)">
+        <div class="pair-name">AUD/JPY</div>
+        <div class="pair-type">Minor (Cross)</div>
+        <div class="pair-price">104.57</div>
+      </div>
+      <div class="pair-card" onclick="showPair('usdtry', this)">
+        <div class="pair-name">USD/TRY</div>
+        <div class="pair-type">Exotic</div>
+        <div class="pair-price">32.14</div>
+      </div>
+    </div>
+    <div class="pair-detail" id="pair-detail">Select a pair above to see details.</div>
+  </div>
+
+  <h3>Three Categories</h3>
+  <div class="cards">
+    <div class="card green">
+      <div class="card-icon">⭐</div>
+      <div class="card-title">Major Pairs</div>
+      <div class="card-body">Always include USD. EUR/USD, GBP/USD, USD/JPY, USD/CHF, AUD/USD, USD/CAD, NZD/USD. <strong>Tightest spreads, most liquidity, most predictable.</strong> Start here as a beginner.</div>
+    </div>
+    <div class="card blue">
+      <div class="card-icon">🔵</div>
+      <div class="card-title">Minor / Cross Pairs</div>
+      <div class="card-body">Major currencies but without USD. EUR/GBP, EUR/JPY, GBP/JPY. <strong>Slightly wider spreads.</strong> GBP/JPY ("The Dragon") is known for extreme volatility — not for beginners.</div>
+    </div>
+    <div class="card amber">
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">Exotic Pairs</div>
+      <div class="card-body">USD paired with emerging market currencies: USD/TRY, USD/ZAR, USD/MXN. <strong>Very wide spreads, high volatility, low liquidity.</strong> Avoid until experienced.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🥇</div>
+      <div class="card-title">Recommended Starter Pairs</div>
+      <div class="card-body"><strong>EUR/USD</strong> — most traded, tightest spreads, tons of analysis available.<br><strong>GBP/USD</strong> — volatile but readable.<br>Stick to 1–2 pairs when learning.</div>
+    </div>
+  </div>
+
+  <div class="callout lesson">
+    <strong>✓ Rule</strong>
+    As a beginner, trade EUR/USD only. You don't need to trade 20 pairs. Mastering one pair means you understand its behavior, its key levels, which sessions it moves most, and which news events affect it. Depth over breadth.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CH 3 ═══ -->
+<section class="chapter" id="ch3">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 3</div>
+    <div>
+      <div class="ch-title">Pips, Lots & Position Sizing</div>
+      <div class="ch-desc">The math that determines every dollar you make or lose</div>
+    </div>
+  </div>
+
+  <p>A <strong>pip</strong> (Percentage In Point) is the smallest standard price movement in forex. For most pairs like EUR/USD, 1 pip = 0.0001 (the 4th decimal place). For USD/JPY, 1 pip = 0.01 (the 2nd decimal place, since JPY has fewer decimals).</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📐</div>
+      <div class="card-title">What is a Pip?</div>
+      <div class="card-body">EUR/USD moves from <strong>1.0842 → 1.0843</strong> = 1 pip.<br>EUR/USD moves from <strong>1.0800 → 1.0900</strong> = 100 pips.<br>Many brokers show a 5th decimal — that's a <strong>pipette</strong> (0.1 pip).</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <div class="card-title">Lot Sizes</div>
+      <div class="card-body">
+        <strong>Standard lot:</strong> 100,000 units — 1 pip ≈ $10<br>
+        <strong>Mini lot:</strong> 10,000 units — 1 pip ≈ $1<br>
+        <strong>Micro lot:</strong> 1,000 units — 1 pip ≈ $0.10<br>
+        <strong>Nano lot:</strong> 100 units — 1 pip ≈ $0.01
+      </div>
+    </div>
+  </div>
+
+  <h3>🧮 Interactive Pip Value Calculator</h3>
+
+  <div class="pip-calc">
+    <h4>Calculate your pip value & potential P&L</h4>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label>Pair</label>
+        <select id="calcPair" onchange="calcPip()">
+          <option value="eurusd">EUR/USD</option>
+          <option value="gbpusd">GBP/USD</option>
+          <option value="usdjpy">USD/JPY</option>
+          <option value="usdchf">USD/CHF</option>
+          <option value="audusd">AUD/USD</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>Lot Size</label>
+        <select id="calcLot" onchange="calcPip()">
+          <option value="0.01">0.01 (Micro)</option>
+          <option value="0.1" selected>0.1 (Mini)</option>
+          <option value="0.5">0.5</option>
+          <option value="1">1.0 (Standard)</option>
+          <option value="2">2.0</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>Pips moved</label>
+        <input type="number" id="calcPips" value="20" min="1" max="500" onchange="calcPip()" oninput="calcPip()">
+      </div>
+    </div>
+    <div class="calc-result">
+      <div class="result-item">
+        <div class="result-label">Pip Value</div>
+        <div class="result-val" id="pipVal">$1.00</div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">P&L (win)</div>
+        <div class="result-val" id="plWin">+$20.00</div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">P&L (loss)</div>
+        <div class="result-val red" id="plLoss">-$20.00</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout mistake">
+    <strong>⚡ Common Mistake — Wrong lot size</strong>
+    A beginner opens a $500 account and trades 1 standard lot. That's 100,000 units. A 20-pip move against them = $200 loss — wiping 40% of their account. Always calculate position size BEFORE entering any trade.
+  </div>
+
+  <div class="callout tip">
+    <strong>💡 Beginner Rule</strong>
+    Start with micro lots (0.01). A $200 loss on a bad trade when you're micro trading = just $2. You learn the same lesson without the financial damage. Scale up only after you're consistently profitable on demo.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CH 4 ═══ -->
+<section class="chapter" id="ch4">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 4</div>
+    <div>
+      <div class="ch-title">Market Sessions & Trading Hours</div>
+      <div class="ch-desc">Not all hours are equal — when to trade and when to stay out</div>
+    </div>
+  </div>
+
+  <p>Forex runs 24/5, but activity and volatility vary dramatically by hour. Trading at 3 AM when only one market is open is like fishing in a near-empty pond. The real action happens when sessions overlap.</p>
+
+  <div class="session-chart">
+    <h4>🕐 24-Hour Session Timeline (GMT)</h4>
+    <div class="session-timeline">
+      <!-- Sydney 21:00-06:00 → 0-6, 21-24 -->
+      <div class="session-block ses-sydney" style="width:25%">SYD</div>
+      <div class="session-block ses-tokyo" style="width:20%">TOK</div>
+      <div class="session-block ses-london" style="width:30%">LDN</div>
+      <div class="session-block ses-newyork" style="width:25%">NYC</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;font-family:'Space Mono',monospace;color:var(--muted);margin-top:6px;padding:0 4px;">
+      <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;">
+      🔥 London–NY overlap (12:00–17:00 GMT) = highest volume, best setups
+    </div>
+
+    <div class="session-cards">
+      <div class="ses-card">
+        <div class="ses-card-name">🌏 Sydney / Asia Open</div>
+        <div class="ses-card-time">21:00–06:00 GMT</div>
+        <div class="ses-card-body">Lowest volume. AUD, NZD, JPY pairs most active. Tight ranges, few breakouts. Not ideal for most strategies unless you specifically trade JPY pairs.</div>
+      </div>
+      <div class="ses-card">
+        <div class="ses-card-name">🗼 Tokyo Session</div>
+        <div class="ses-card-time">00:00–09:00 GMT</div>
+        <div class="ses-card-body">JPY pairs (USD/JPY, EUR/JPY) see their highest activity here. Market tends to set ranges that London later breaks. Bank of Japan influence is strongest.</div>
+      </div>
+      <div class="ses-card">
+        <div class="ses-card-name">🏦 London Session</div>
+        <div class="ses-card-time">07:00–16:00 GMT</div>
+        <div class="ses-card-body"><strong>Highest volume session.</strong> European banks open, GBP and EUR pairs become extremely active. Most significant price moves of the day begin here. Beginners should focus on this session.</div>
+      </div>
+      <div class="ses-card">
+        <div class="ses-card-name">🗽 New York Session</div>
+        <div class="ses-card-time">12:00–21:00 GMT</div>
+        <div class="ses-card-body">Second largest. USD pairs dominate. The London–NY overlap (12:00–17:00) is the single most liquid period in forex — tightest spreads, biggest moves. Major US news releases hit here (NFP, CPI).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout lesson">
+    <strong>✓ When to Trade as a Beginner</strong>
+    London session open (07:00–10:00 GMT) and London–NY overlap (13:00–17:00 GMT) are the two best windows. This is when institutional money is active, liquidity is highest, setups are cleanest, and spreads are smallest.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CH 5 ═══ -->
+<section class="chapter" id="ch5">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 5</div>
+    <div>
+      <div class="ch-title">Who Moves the Market?</div>
+      <div class="ch-desc">Understanding the hierarchy — and where retail traders sit in it</div>
+    </div>
+  </div>
+
+  <p>The forex market is not fair. Different participants have vastly different access, information, and power. Understanding this hierarchy is crucial — retail traders who don't understand it trade against participants who have much more information and capital.</p>
+
+  <div class="players-grid">
+    <div class="player-card">
+      <div class="player-icon">🏛️</div>
+      <div class="player-name">Central Banks</div>
+      <div class="player-share" style="color:var(--red)">Most Powerful</div>
+      <div class="share-bar"><div class="share-fill" style="width:95%;background:var(--red)"></div></div>
+      <div class="player-desc">Federal Reserve (USD), ECB (EUR), Bank of Japan (JPY). They SET interest rates and print money. A single statement from the Fed Chair can move EUR/USD 200 pips in minutes. They are the ultimate market movers.</div>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">🏦</div>
+      <div class="player-name">Commercial Banks</div>
+      <div class="player-share" style="color:var(--amber)">~40% of Volume</div>
+      <div class="share-bar"><div class="share-fill" style="width:75%;background:var(--amber)"></div></div>
+      <div class="player-desc">JP Morgan, Deutsche Bank, Citi, Goldman Sachs. They trade for clients and themselves. Their order flow creates the institutional footprints (order blocks, fair value gaps) that advanced traders study.</div>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">🏢</div>
+      <div class="player-name">Hedge Funds</div>
+      <div class="player-share" style="color:var(--blue)">~15% of Volume</div>
+      <div class="share-bar"><div class="share-fill" style="width:55%;background:var(--blue)"></div></div>
+      <div class="player-desc">Speculative funds trading billions. George Soros famously "broke the Bank of England" in 1992, making $1 billion by shorting the British Pound. These are the smart money participants retail traders try to follow.</div>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">🏭</div>
+      <div class="player-name">Corporations</div>
+      <div class="player-share" style="color:var(--purple)">Hedging Activity</div>
+      <div class="share-bar"><div class="share-fill" style="width:40%;background:var(--purple)"></div></div>
+      <div class="player-desc">Apple selling iPhones in Europe receives Euros. They exchange back to USD. These large corporate conversions move currency prices. Not speculative — they just need to exchange currencies for business.</div>
+    </div>
+    <div class="player-card" style="grid-column:span 2;">
+      <div class="player-icon">📱</div>
+      <div class="player-name">Retail Traders (You)</div>
+      <div class="player-share" style="color:var(--muted)">~5–6% of Volume</div>
+      <div class="share-bar"><div class="share-fill" style="width:15%;background:var(--muted)"></div></div>
+      <div class="player-desc">Individual traders using apps and platforms. The smallest participants. We cannot move the market — we can only read it and react. The goal is to understand what larger players are doing and trade WITH them, not against them. Retail traders who think they're fighting the market are always on the losing side.</div>
+    </div>
+  </div>
+
+  <div class="callout mistake">
+    <strong>⚡ Common Mistake — Thinking retail opinion moves markets</strong>
+    "Everyone on Twitter says EUR/USD is going up" — this means nothing. 10,000 retail traders buying EUR/USD with micro lots have less impact than one medium-sized hedge fund. Don't trade social media sentiment. Trade price and institutional behavior.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CH 6 ═══ -->
+<section class="chapter" id="ch6">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 6</div>
+    <div>
+      <div class="ch-title">Leverage, Spread & Margin</div>
+      <div class="ch-desc">The double-edged tools every forex trader must understand</div>
+    </div>
+  </div>
+
+  <p><strong>Leverage</strong> lets you control more money than you have. With 1:100 leverage, $100 controls $10,000. This amplifies both profits AND losses equally. It's the single most dangerous aspect of forex for beginners.</p>
+
+  <h3>How Leverage Works</h3>
+
+  <table class="lev-table">
+    <tr>
+      <th>Leverage</th>
+      <th>Your Capital</th>
+      <th>Position Size</th>
+      <th>1% Move (Win)</th>
+      <th>1% Move (Loss)</th>
+    </tr>
+    <tr>
+      <td>1:1</td>
+      <td>$1,000</td>
+      <td>$1,000</td>
+      <td class="gn">+$10</td>
+      <td class="rd">-$10 (1%)</td>
+    </tr>
+    <tr>
+      <td>1:10</td>
+      <td>$1,000</td>
+      <td>$10,000</td>
+      <td class="gn">+$100</td>
+      <td class="rd">-$100 (10%)</td>
+    </tr>
+    <tr>
+      <td>1:50</td>
+      <td>$1,000</td>
+      <td>$50,000</td>
+      <td class="gn">+$500</td>
+      <td class="rd">-$500 (50%)</td>
+    </tr>
+    <tr>
+      <td>1:100</td>
+      <td>$1,000</td>
+      <td>$100,000</td>
+      <td class="gn">+$1,000</td>
+      <td class="rd am">-$1,000 (WIPED)</td>
+    </tr>
+  </table>
+
+  <div class="callout mistake">
+    <strong>⚡ Most Dangerous Mistake in Forex</strong>
+    Using maximum leverage as a beginner. A broker offering 1:500 leverage is not doing you a favor — it's giving you a loaded weapon. One 0.2% move against you at 1:500 wipes your account. Experienced prop traders rarely use more than 1:10 to 1:20 effective leverage.
+  </div>
+
+  <h3>What is Spread?</h3>
+  <p>The spread is the difference between the <strong>buy price (ask)</strong> and the <strong>sell price (bid)</strong>. This is how brokers make money — it's their fee per trade. Tighter spread = cheaper trading.</p>
+
+  <div class="cards">
+    <div class="card green">
+      <div class="card-icon">✅</div>
+      <div class="card-title">Tight Spread (Major Pairs)</div>
+      <div class="card-body">EUR/USD: typically <strong>0.1–1 pip</strong> spread during London/NY sessions. Very cheap to trade. Scalpers target tight-spread pairs.</div>
+    </div>
+    <div class="card amber">
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">Wide Spread (Exotic Pairs)</div>
+      <div class="card-body">USD/ZAR or USD/TRY: spreads can be <strong>20–80 pips</strong>. That means the price needs to move 80 pips in your direction just to break even. Hidden cost of exotics.</div>
+    </div>
+  </div>
+
+  <h3>What is a Margin Call?</h3>
+  <p>Margin is the deposit required to open a leveraged position. A <strong>margin call</strong> happens when your losses eat into your required margin, and the broker automatically closes your trades to prevent further loss. It's effectively getting "stopped out" by the broker — usually at the worst possible moment.</p>
+
+  <div class="callout lesson">
+    <strong>✓ Practical Rule on Leverage</strong>
+    Use no more than 1:10 effective leverage (better: 1:3 to 1:5). Even if your broker offers 1:500, don't use it. Prop firms typically operate with lower effective leverage built into their risk rules. Your position sizing controls effective leverage — this is where risk management begins.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CH 7 ═══ -->
+<section class="chapter" id="ch7">
+  <div class="ch-header">
+    <div class="ch-tag">Chapter 7</div>
+    <div>
+      <div class="ch-title">Economic News & Forex</div>
+      <div class="ch-desc">The events that move currencies — and when to stay out</div>
+    </div>
+  </div>
+
+  <p>Economic data releases are the most powerful short-term movers in forex. When the US jobs report (NFP) is released, EUR/USD can move 100–200 pips in seconds. Understanding what each event means is non-negotiable.</p>
+
+  <h3>High-Impact News Events</h3>
+
+  <table class="news-table">
+    <tr>
+      <th>Event</th>
+      <th>Currency</th>
+      <th>Impact</th>
+      <th>What it Measures</th>
+      <th>Direction Rule</th>
+    </tr>
+    <tr>
+      <td><strong>NFP (Non-Farm Payrolls)</strong></td>
+      <td>USD</td>
+      <td><span class="impact high">HIGH</span></td>
+      <td>US jobs added each month. Released first Friday of every month.</td>
+      <td>Better than expected → USD rises</td>
+    </tr>
+    <tr>
+      <td><strong>CPI (Inflation)</strong></td>
+      <td>USD, EUR, GBP</td>
+      <td><span class="impact high">HIGH</span></td>
+      <td>Consumer Price Index — measures inflation rate</td>
+      <td>High inflation → central bank may raise rates → currency rises</td>
+    </tr>
+    <tr>
+      <td><strong>Interest Rate Decision</strong></td>
+      <td>All majors</td>
+      <td><span class="impact high">HIGH</span></td>
+      <td>Central bank sets base interest rate</td>
+      <td>Rate hike → currency strengthens. Rate cut → weakens</td>
+    </tr>
+    <tr>
+      <td><strong>GDP Report</strong></td>
+      <td>USD, EUR, GBP</td>
+      <td><span class="impact high">HIGH</span></td>
+      <td>Gross Domestic Product — overall economic growth</td>
+      <td>Strong GDP → currency tends to rise</td>
+    </tr>
+    <tr>
+      <td><strong>Retail Sales</strong></td>
+      <td>USD, GBP</td>
+      <td><span class="impact med">MED</span></td>
+      <td>Consumer spending — signals economic health</td>
+      <td>Strong sales → potential rate hike signal → currency up</td>
+    </tr>
+    <tr>
+      <td><strong>PMI (Manufacturing)</strong></td>
+      <td>USD, EUR, GBP</td>
+      <td><span class="impact med">MED</span></td>
+      <td>Purchasing Manager Index — factory activity</td>
+      <td>Above 50 = expansion (positive). Below 50 = contraction</td>
+    </tr>
+    <tr>
+      <td><strong>FOMC Minutes</strong></td>
+      <td>USD</td>
+      <td><span class="impact high">HIGH</span></td>
+      <td>Federal Reserve meeting notes — hints at future policy</td>
+      <td>Hawkish tone → USD rises. Dovish tone → USD falls</td>
+    </tr>
+  </table>
+
+  <div class="callout info">
+    <strong>📅 Forex Factory</strong>
+    forexfactory.com is the most widely used economic calendar. Check it every morning before trading. Red-folder events = don't trade unless you know exactly what you're doing. Your prop firm may have specific rules about trading during high-impact news.
+  </div>
+
+  <div class="callout mistake">
+    <strong>⚡ Common Mistake — Trading directly INTO news releases</strong>
+    NFP is about to release in 5 minutes. You enter a trade because "you think it'll be good." The number comes out better than expected — and EUR/USD drops 80 pips anyway because the market had already priced in a good result. News trading is extremely unpredictable. As a beginner: close positions 30 minutes before major news, wait for the dust to settle, then look for setups.
+  </div>
+
+  <div class="callout lesson">
+    <strong>✓ Beginner News Strategy</strong>
+    Don't trade news — trade the aftermath. After NFP, wait 15–30 minutes. Let the spike happen, let the reversal happen, let a new price direction establish. Then trade the continuation with your normal strategy. You avoid the whipsaw and trade a cleaner move.
+  </div>
+
+  <h3>🗓️ Your 2–4 Week Study Plan</h3>
+  <div class="week-plan">
+    <div class="week-card">
+      <div class="week-num">WEEK 01</div>
+      <div class="week-title">Market Basics</div>
+      <ul class="week-tasks">
+        <li>Read Babypips School of Pipsology: Preschool + Elementary</li>
+        <li>Learn all major pairs, their nicknames, their characteristics</li>
+        <li>Understand what a pip is and calculate manually</li>
+        <li>Download TradingView, open EUR/USD, just look — don't analyze yet</li>
+        <li>Watch 1 hour of Forex basics video content (non-sales)</li>
+      </ul>
+    </div>
+    <div class="week-card">
+      <div class="week-num">WEEK 02</div>
+      <div class="week-title">Market Structure & Players</div>
+      <ul class="week-tasks">
+        <li>Read Babypips: Middle School section</li>
+        <li>Study the 4 market sessions, know GMT times</li>
+        <li>Check Forex Factory — understand the calendar layout</li>
+        <li>Follow 1 NFP or CPI release: watch what happens to USD pairs</li>
+        <li>Practice reading pip values with calculator</li>
+      </ul>
+    </div>
+    <div class="week-card">
+      <div class="week-num">WEEK 03</div>
+      <div class="week-title">Leverage & Risk Concepts</div>
+      <ul class="week-tasks">
+        <li>Read Babypips: High School section on risk</li>
+        <li>Open a demo account (broker: OANDA, XM, or similar)</li>
+        <li>Practice opening and closing trades — learn the platform</li>
+        <li>Understand spread: check EUR/USD spread at 3 AM vs 9 AM London</li>
+        <li>Set up your trading journal (Google Sheets or notebook)</li>
+      </ul>
+    </div>
+    <div class="week-card">
+      <div class="week-num">WEEK 04</div>
+      <div class="week-title">Review & Self-Test</div>
+      <ul class="week-tasks">
+        <li>Take the quiz below — without looking anything up first</li>
+        <li>Re-read any chapter you scored poorly on</li>
+        <li>Write a 1-page summary of what forex is, in your own words</li>
+        <li>Identify: who are the biggest players and what moves EUR/USD most?</li>
+        <li>Confirm you can open, size, and close a demo trade confidently</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ QUIZ ═══ -->
+<section class="chapter" id="quiz">
+  <div class="ch-header">
+    <div class="ch-tag" style="background:var(--amber-dim);color:var(--amber);border-color:#FFB80044;">Quiz</div>
+    <div>
+      <div class="ch-title">Stage 1 Knowledge Check</div>
+      <div class="ch-desc">10 questions — test what you've learned before moving to Stage 2</div>
+    </div>
+  </div>
+
+  <div class="quiz-section">
+    <h4>📝 Stage 1 Quiz</h4>
+    <p class="quiz-intro">Answer all questions. Aim for 8/10 before moving to Stage 2. Each wrong answer reveals the correct answer and why.</p>
+
+    <div id="quiz-container"></div>
+
+    <div class="quiz-score" id="quizScore">
+      <div class="score-num" id="scoreNum">0/10</div>
+      <div class="score-label" id="scoreLabel">Calculating...</div>
+      <div style="margin-top:16px;font-size:13px;color:var(--muted);font-family:'Space Mono',monospace;" id="scoreAdvice"></div>
+    </div>
+  </div>
+
+  <button class="complete-btn" id="stageCompBtn" onclick="completeStage()">✓ Mark Stage 1 Complete — Proceed to Stage 2</button>
+</section>
+
+</main>
+
+<footer>
+  FOREX PROP TRADER PATH · Stage 1 of 8 · Foundation Phase<br>
+  Not financial advice · Trading involves significant risk of loss
+</footer>
+
+<script>
+// ── PAIR DATA ─────────────────────────────────────────────
+const pairData = {
+  eurusd: {
+    name: 'EUR/USD — "The Fiber"',
+    body: `<strong>Most traded pair in the world</strong> (~25% of all forex volume). The Euro (EU) vs US Dollar.<br><br>
+    <strong>Best sessions:</strong> London open, London–NY overlap.<br>
+    <strong>Typical daily range:</strong> 60–100 pips.<br>
+    <strong>Spread:</strong> Usually 0.1–1 pip at major brokers.<br>
+    <strong>Key drivers:</strong> ECB rate decisions, US NFP/CPI, EU GDP data.<br><br>
+    <strong>Why start here:</strong> Most analysis available, most predictable behavior, tightest spreads. The best pair for beginners.`
+  },
+  gbpusd: {
+    name: 'GBP/USD — "The Cable"',
+    body: `<strong>British Pound vs US Dollar.</strong> Named "Cable" because exchange rates were originally transmitted via transatlantic telegraph cable in the 1800s.<br><br>
+    <strong>Best sessions:</strong> London session is king for GBP.<br>
+    <strong>Typical daily range:</strong> 80–130 pips — more volatile than EUR/USD.<br>
+    <strong>Spread:</strong> 0.5–2 pips typically.<br>
+    <strong>Key drivers:</strong> Bank of England decisions, UK CPI, Brexit aftermath, UK GDP.<br><br>
+    <strong>Beginner note:</strong> More volatile than EUR/USD. Good second pair once you've mastered EUR/USD.`
+  },
+  usdjpy: {
+    name: 'USD/JPY — "The Gopher"',
+    body: `<strong>US Dollar vs Japanese Yen.</strong> Pip structure is different: 1 pip = 0.01 (not 0.0001) because JPY has fewer decimals.<br><br>
+    <strong>Best sessions:</strong> Tokyo session + NY overlap with Tokyo.<br>
+    <strong>Typical daily range:</strong> 40–80 pips (measured in JPY terms).<br>
+    <strong>Key drivers:</strong> Bank of Japan (BoJ) policy, US interest rates, risk sentiment (safe haven flows).<br><br>
+    <strong>Special behavior:</strong> JPY is a safe haven. When global risk increases (crashes, wars), traders BUY JPY → USD/JPY falls. Good pair to understand macro sentiment.`
+  },
+  eurgbp: {
+    name: 'EUR/GBP — Cross Pair',
+    body: `<strong>Euro vs British Pound — a Minor (Cross) pair.</strong> Does not involve USD directly but is derived from EUR/USD and GBP/USD.<br><br>
+    <strong>Characteristic:</strong> Moves slowly — often ranges for days. Favored by range traders.<br>
+    <strong>Typical daily range:</strong> 40–70 pips.<br>
+    <strong>Spread:</strong> Usually 0.5–2 pips.<br>
+    <strong>Key drivers:</strong> ECB vs Bank of England policy divergence, Brexit-related data.<br><br>
+    <strong>Note:</strong> Avoid until you understand EUR/USD and GBP/USD individually, since EUR/GBP is a ratio of the two.`
+  },
+  audjpy: {
+    name: 'AUD/JPY — Risk Sentiment Pair',
+    body: `<strong>Australian Dollar vs Japanese Yen.</strong> One of the best "risk sentiment" indicators in forex.<br><br>
+    <strong>Why it's unique:</strong> AUD is a risk currency (falls in crises). JPY is a safe haven (rises in crises). AUD/JPY therefore DROPS sharply when global risk-off sentiment hits — sometimes predicting stock market selloffs.<br><br>
+    <strong>Typical daily range:</strong> 60–100 pips.<br>
+    <strong>Spread:</strong> Usually 1–3 pips.<br><br>
+    <strong>Not for beginners</strong> — but useful to watch as a macro sentiment indicator.`
+  },
+  usdtry: {
+    name: 'USD/TRY — Exotic Pair',
+    body: `<strong>US Dollar vs Turkish Lira — an Exotic pair.</strong> Turkey's Lira has experienced extreme inflation and political instability.<br><br>
+    <strong>Why it's dangerous:</strong> Spread can be 20–80 pips. That means you're already losing $200–800 the moment you open a standard lot position. Price swings can be enormous (100s of pips overnight).<br><br>
+    <strong>Typical daily range:</strong> 200–1000+ pips — but this doesn't mean profit opportunity; it means risk.<br><br>
+    <strong>Rule:</strong> Avoid ALL exotic pairs until you have 1–2 years of consistent profitability on major pairs. Exotics are not where you build skills — they're where you blow accounts.`
+  }
+};
+
+function showPair(id, el) {
+  document.querySelectorAll('.pair-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const det = document.getElementById('pair-detail');
+  det.innerHTML = `<strong style="color:var(--white);font-size:14px;">${pairData[id].name}</strong><br><br>${pairData[id].body}`;
+  det.classList.add('show');
+}
+
+// ── PIP CALCULATOR ────────────────────────────────────────
+const pipValues = {
+  eurusd: 10, gbpusd: 10, usdjpy: 6.36, usdchf: 10.9, audusd: 10
+};
+
+function calcPip() {
+  const pair = document.getElementById('calcPair').value;
+  const lot = parseFloat(document.getElementById('calcLot').value);
+  const pips = parseInt(document.getElementById('calcPips').value) || 0;
+  const pipVal = pipValues[pair] * lot;
+  const pl = pipVal * pips;
+
+  document.getElementById('pipVal').textContent = `$${pipVal.toFixed(2)}`;
+  document.getElementById('plWin').textContent = `+$${pl.toFixed(2)}`;
+  document.getElementById('plLoss').textContent = `-$${pl.toFixed(2)}`;
+}
+calcPip();
+
+// ── CHAPTER NAV ───────────────────────────────────────────
+function scrollTo(id, btn) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.ch-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── QUIZ ──────────────────────────────────────────────────
+const questions = [
+  {
+    q: "What does EUR/USD = 1.0842 mean?",
+    opts: [
+      "1 US Dollar costs 1.0842 Euros",
+      "1 Euro costs 1.0842 US Dollars",
+      "The market went up by 1.0842 pips today",
+      "EUR is weaker than USD by 8.42%"
+    ],
+    ans: 1,
+    explain: "The base currency (EUR, on the left) is always priced in the quote currency (USD, on the right). EUR/USD = 1.0842 means 1 Euro buys 1.0842 US Dollars."
+  },
+  {
+    q: "How much is 1 pip worth on a 0.1 lot (mini lot) EUR/USD position?",
+    opts: ["$0.10", "$10.00", "$1.00", "$100.00"],
+    ans: 2,
+    explain: "Standard lot = $10/pip. Mini lot (0.1) = $1/pip. Micro lot (0.01) = $0.10/pip. This is why lot size directly controls your risk per pip."
+  },
+  {
+    q: "Which session has the highest trading volume and tightest spreads?",
+    opts: ["Sydney", "Tokyo", "London", "London–New York Overlap"],
+    ans: 3,
+    explain: "The London–New York overlap (roughly 12:00–17:00 GMT) is the single most liquid period in forex. Two of the world's largest financial centers are both active simultaneously."
+  },
+  {
+    q: "A trader uses 1:100 leverage with $500. A 1% adverse move wipes what percentage of their account?",
+    opts: ["1%", "10%", "50%", "100% — full account wipe"],
+    ans: 3,
+    explain: "At 1:100 leverage, $500 controls $50,000. A 1% move = $500 loss — your entire account. This is why max leverage is extremely dangerous. Always use low effective leverage."
+  },
+  {
+    q: "Which of these is NOT a major currency pair?",
+    opts: ["EUR/USD", "GBP/USD", "EUR/GBP", "USD/JPY"],
+    ans: 2,
+    explain: "EUR/GBP is a minor (cross) pair — it doesn't include USD. Major pairs always include the US Dollar on one side. EUR/USD, GBP/USD, and USD/JPY are all majors."
+  },
+  {
+    q: "The Non-Farm Payrolls (NFP) report is released and shows much better than expected job growth. What typically happens to USD?",
+    opts: [
+      "USD weakens — fewer people need to work",
+      "USD strengthens — strong economy suggests possible rate hikes",
+      "Nothing — markets ignore employment data",
+      "USD/JPY falls sharply"
+    ],
+    ans: 1,
+    explain: "Strong jobs = healthy economy = Federal Reserve more likely to raise interest rates = USD becomes more attractive to hold. Better-than-expected NFP typically strengthens the Dollar, though actual market reaction can be complex."
+  },
+  {
+    q: "What is the 'spread' in forex?",
+    opts: [
+      "The range a currency moved in a day",
+      "The difference between buy price (ask) and sell price (bid)",
+      "The margin required to open a position",
+      "The number of pips your stop loss is away"
+    ],
+    ans: 1,
+    explain: "Spread = Ask price minus Bid price. This is how brokers make money — you always buy slightly higher than the current price and sell slightly lower. Tighter spread = cheaper to trade. EUR/USD typically has the tightest spread of any pair."
+  },
+  {
+    q: "Which type of participant has the most power to move the forex market?",
+    opts: [
+      "Retail traders (individuals)",
+      "Corporations converting currencies",
+      "Central Banks (Fed, ECB, BoJ)",
+      "Hedge Funds"
+    ],
+    ans: 2,
+    explain: "Central banks are the supreme power in forex. They set interest rates, print money, and can intervene directly in currency markets. A single Fed rate decision or ECB statement can move major pairs 150–300 pips. No retail trader or hedge fund can fight a central bank."
+  },
+  {
+    q: "As a beginner, what is the smartest approach to high-impact news releases like NFP?",
+    opts: [
+      "Double your position size — big moves = big profits",
+      "Trade in the predicted direction 5 minutes before the release",
+      "Avoid open positions 30 min before, wait for dust to settle, then trade the trend",
+      "Only trade exotics during news — less competition"
+    ],
+    ans: 2,
+    explain: "News releases cause extreme spikes, reversals, and whipsaws that are impossible to predict reliably. Experienced traders either specialize in news trading (very advanced) or avoid it. Best beginner approach: close positions before, let the move happen, then trade the new trend that emerges."
+  },
+  {
+    q: "A Standard lot is 100,000 units. What is a Micro lot?",
+    opts: ["10,000 units", "1,000 units", "100 units", "50,000 units"],
+    ans: 1,
+    explain: "Lot sizes: Standard = 100,000 units ($10/pip), Mini = 10,000 units ($1/pip), Micro = 1,000 units ($0.10/pip), Nano = 100 units ($0.01/pip). Beginners should start with micro lots to keep losses small while learning."
+  }
+];
+
+let quizAnswers = new Array(questions.length).fill(null);
+let quizScore = 0;
+let quizDone = false;
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.id = `q${i}`;
+    div.innerHTML = `
+      <div class="quiz-q-text">Q${i+1}. ${q.q}</div>
+      <div class="quiz-options">
+        ${q.opts.map((o, j) => `<button class="quiz-opt" onclick="answerQ(${i}, ${j}, this)">${o}</button>`).join('')}
+      </div>
+      <div class="quiz-explain" id="explain${i}">${q.explain}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function answerQ(qi, ai, btn) {
+  if (quizAnswers[qi] !== null) return;
+  quizAnswers[qi] = ai;
+
+  const opts = document.querySelectorAll(`#q${qi} .quiz-opt`);
+  opts.forEach((o, j) => {
+    if (j === questions[qi].ans) o.classList.add('correct');
+    else if (j === ai && ai !== questions[qi].ans) o.classList.add('wrong');
+    else o.classList.add('neutral');
+    o.classList.add('answered');
+  });
+
+  document.getElementById(`explain${qi}`).classList.add('show');
+
+  if (ai === questions[qi].ans) quizScore++;
+
+  const answered = quizAnswers.filter(a => a !== null).length;
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  quizDone = true;
+  const scoreEl = document.getElementById('quizScore');
+  scoreEl.classList.add('show');
+  document.getElementById('scoreNum').textContent = `${quizScore}/10`;
+
+  let label, advice;
+  if (quizScore >= 9) {
+    label = '🏆 Excellent — Ready for Stage 2';
+    advice = 'Strong foundations. Move to Stage 2: Charting & Technical Analysis.';
+    document.getElementById('scoreNum').style.color = 'var(--green)';
+  } else if (quizScore >= 7) {
+    label = '✓ Good — Review weak spots, then proceed';
+    advice = 'Re-read the chapters where you got answers wrong, then move on.';
+    document.getElementById('scoreNum').style.color = 'var(--amber)';
+  } else {
+    label = '↩ Review Stage 1 before proceeding';
+    advice = 'Re-read the chapters with wrong answers carefully. Take the quiz again in a few days.';
+    document.getElementById('scoreNum').style.color = 'var(--red)';
+  }
+  document.getElementById('scoreLabel').textContent = label;
+  document.getElementById('scoreAdvice').textContent = advice;
+  scoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function completeStage() {
+  const btn = document.getElementById('stageCompBtn');
+  btn.textContent = '✓ Stage 1 Complete — Good luck in Stage 2!';
+  btn.classList.add('done');
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
